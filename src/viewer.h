@@ -41,5 +41,6 @@ void get_vertex(FILE **file, data *input_d);
 void get_pol(FILE **file, data *input_d);
 int is_digit(char buffer);
 void fill_min_max(data *input_d);
+void find_center(vertex *v, double *center_x, double *center_y, double *center_z);
 
 #endif  // INC_3D_VIEWER_PARSER_H

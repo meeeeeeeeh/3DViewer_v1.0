@@ -63,30 +63,37 @@ void get_vertex(FILE **file, data *input_d) {
     }
 }
 
-// void fill_min_max(data *input_d) {
-//     for (int i = 0; i < input_d->amount_vert; i++) {
-//         if (input_d->data_v->matrix[i][0] < input_d->data_v->minmax_x[0]) {
-//             input_d->data_v->minmax_x[0] = input_d->data_v->matrix[i][0];
-//         }
-//         else if (input_d->data_v->matrix[i][0] < input_d->data_v->minmax_x[1]) {
-//             input_d->data_v->minmax_x[1] = input_d->data_v->matrix[i][0];
-//         }
-        
-//         if (input_d->data_v->matrix[i][1] < input_d->data_v->minmax_y[0]) {
-//             input_d->data_v->minmax_y[0] = input_d->data_v->matrix[i][1];
-//         }
-//         else if (input_d->data_v->matrix[i][1] < input_d->data_v->minmax_y[1]) {
-//             input_d->data_v->minmax_y[1] = input_d->data_v->matrix[i][1];
-//         }
+void find_center(vertex *v, double *center_x, double *center_y, double *center_z) {
+    *center_x = v->minmax_x[0] + (v->minmax_x[1] - v->minmax_x[0]) / 2;
+    *center_y = v->minmax_y[0] + (v->minmax_y[1] - v->minmax_y[0]) / 2;
+    *center_z = v->minmax_z[0] + (v->minmax_z[1] - v->minmax_z[0]) / 2;
+}
 
-//         if (input_d->data_v->matrix[i][2] < input_d->data_v->minmax_z[0]) {
-//             input_d->data_v->minmax_x[0] = input_d->data_v->matrix[i][2];
-//         }
-//         else if (input_d->data_v->matrix[i][2] < input_d->data_v->minmax_z[1]) {
-//             input_d->data_v->minmax_z[1] = input_d->data_v->matrix[i][2];
-//         }
-//     }
-// }
+// нужно занулить значения вначале
+void fill_min_max(data *input_d) {
+    for (int i = 0; i < input_d->amount_vert; i++) {
+        if (input_d->data_v->matrix[i][0] < input_d->data_v->minmax_x[0]) {
+            input_d->data_v->minmax_x[0] = input_d->data_v->matrix[i][0];
+        }
+        else if (input_d->data_v->matrix[i][0] < input_d->data_v->minmax_x[1]) {
+            input_d->data_v->minmax_x[1] = input_d->data_v->matrix[i][0];
+        }
+        
+        if (input_d->data_v->matrix[i][1] < input_d->data_v->minmax_y[0]) {
+            input_d->data_v->minmax_y[0] = input_d->data_v->matrix[i][1];
+        }
+        else if (input_d->data_v->matrix[i][1] < input_d->data_v->minmax_y[1]) {
+            input_d->data_v->minmax_y[1] = input_d->data_v->matrix[i][1];
+        }
+
+        if (input_d->data_v->matrix[i][2] < input_d->data_v->minmax_z[0]) {
+            input_d->data_v->minmax_x[0] = input_d->data_v->matrix[i][2];
+        }
+        else if (input_d->data_v->matrix[i][2] < input_d->data_v->minmax_z[1]) {
+            input_d->data_v->minmax_z[1] = input_d->data_v->matrix[i][2];
+        }
+    }
+}
 
 void get_pol(FILE **file, data *input_d) {
     rewind(file);
