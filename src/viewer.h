@@ -25,8 +25,8 @@ typedef struct vertex
 
 
 typedef struct polygon {
-    double *polygons;
-    polygon *next_struct;
+    double **polygons;
+    //polygon *next_struct;
 } polygon;
 
 int open_obj(char *f_name, FILE **file);

@@ -66,7 +66,9 @@ void get_pol(FILE **file, data *input_d) {
     rewind(file);
     int i = 0;
     int k = 0;
-    int amount = 0;
+    int amount_in_pol = 0;
+    int count_memory = 0;
+    int line = 0;
     
 
     char *buffer = NULL;
@@ -75,9 +77,20 @@ void get_pol(FILE **file, data *input_d) {
 
     while ((getline(&buffer, &len, file)) != -1) {
         if (buffer[0] == 'f' && buffer[1] == ' ') {
+        
+            for (int i = 1; buffer[i] != '\0'; i++) {
+                if (is_digit(buffer[i]) && buffer[i - 1] == ' ') {
+                    count_memory++;
+                }
+            }
+
+            input_d->data_p->polygons[line] = calloc(count_memory, sizeof(double));
+            line++;
+
 
             for (int i = 1; buffer[i] != '\0'; i++) {
                 if (is_digit(buffer[i]) && buffer[i - 1] == ' ') {
+
                     while (is_digit(buffer[i])) {
                 
                         new_buf[k] = buffer[i];
@@ -85,11 +98,15 @@ void get_pol(FILE **file, data *input_d) {
                         i++;
                     } 
                     new_buf[k] = '\0';
-                    input_d->data_p->polygons[amount] = atof(new_buf);
+                    input_d->data_p->polygons[line][amount_in_pol] = atof(new_buf);
+                    amount_in_pol++;
                     *new_buf = "\0";
                 }
             }
+            count_memory = 0;
+            amount_in_pol = 0;
         }
+
     }
 }
 
