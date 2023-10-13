@@ -12,6 +12,7 @@ int open_obj(char *f_name, FILE **file) {
 }
 
 void counter_vert(FILE **file, data *input_d) {
+    rewind(file);
     char *buffer = NULL;
     size_t len = MAX_LENGHT;
     while ((getline(&buffer, &len, file)) != -1) {
@@ -22,6 +23,7 @@ void counter_vert(FILE **file, data *input_d) {
 }
 
 void counter_pol(FILE **file, data *input_d) {
+    rewind(file);
     char *buffer = NULL;
     size_t len = MAX_LENGHT;
     while ((getline(&buffer, &len, file)) != -1) {
@@ -46,7 +48,7 @@ int memory_pol(data *input_d) {
 }
 
 void get_vertex(FILE **file, data *input_d) {
-
+    rewind(file);
     int i = 0;
 
     char *buffer = NULL;
@@ -61,5 +63,34 @@ void get_vertex(FILE **file, data *input_d) {
 }
 
 void get_pol(FILE **file, data *input_d) {
+    rewind(file);
+    int i = 0;
+    int k = 0;
+    int amount = 0;
+    
 
+    char *buffer = NULL;
+    char new_buf[MAX_LENGHT] = {};
+    size_t len = MAX_LENGHT;
+
+    while ((getline(&buffer, &len, file)) != -1) {
+        if (buffer[0] == 'f' && buffer[1] == ' ') {
+
+            for (int i = 1; buffer[i] != '\0'; i++) {
+                if (is_digit(buffer[i]) && buffer[i - 1] == ' ') {
+                    while (is_digit(buffer[i])) {
+                
+                        new_buf[k] = buffer[i];
+                        k++;
+                        i++;
+                    } 
+                    new_buf[k] = '\0';
+                    input_d->data_p->polygons[amount] = atof(new_buf);
+                    *new_buf = "\0";
+                }
+            }
+        }
+    }
 }
+
+int is_digit(char buffer) { return (buffer >= '0' && buffer <= '9'); }
