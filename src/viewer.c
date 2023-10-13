@@ -2,6 +2,7 @@
 
 int main() {
 
+
 }
 
 int open_obj(char *f_name, FILE **file) {
@@ -62,6 +63,31 @@ void get_vertex(FILE **file, data *input_d) {
     }
 }
 
+// void fill_min_max(data *input_d) {
+//     for (int i = 0; i < input_d->amount_vert; i++) {
+//         if (input_d->data_v->matrix[i][0] < input_d->data_v->minmax_x[0]) {
+//             input_d->data_v->minmax_x[0] = input_d->data_v->matrix[i][0];
+//         }
+//         else if (input_d->data_v->matrix[i][0] < input_d->data_v->minmax_x[1]) {
+//             input_d->data_v->minmax_x[1] = input_d->data_v->matrix[i][0];
+//         }
+        
+//         if (input_d->data_v->matrix[i][1] < input_d->data_v->minmax_y[0]) {
+//             input_d->data_v->minmax_y[0] = input_d->data_v->matrix[i][1];
+//         }
+//         else if (input_d->data_v->matrix[i][1] < input_d->data_v->minmax_y[1]) {
+//             input_d->data_v->minmax_y[1] = input_d->data_v->matrix[i][1];
+//         }
+
+//         if (input_d->data_v->matrix[i][2] < input_d->data_v->minmax_z[0]) {
+//             input_d->data_v->minmax_x[0] = input_d->data_v->matrix[i][2];
+//         }
+//         else if (input_d->data_v->matrix[i][2] < input_d->data_v->minmax_z[1]) {
+//             input_d->data_v->minmax_z[1] = input_d->data_v->matrix[i][2];
+//         }
+//     }
+// }
+
 void get_pol(FILE **file, data *input_d) {
     rewind(file);
     int i = 0;
@@ -77,7 +103,7 @@ void get_pol(FILE **file, data *input_d) {
 
     while ((getline(&buffer, &len, file)) != -1) {
         if (buffer[0] == 'f' && buffer[1] == ' ') {
-        
+
             for (int i = 1; buffer[i] != '\0'; i++) {
                 if (is_digit(buffer[i]) && buffer[i - 1] == ' ') {
                     count_memory++;
@@ -86,7 +112,6 @@ void get_pol(FILE **file, data *input_d) {
 
             input_d->data_p->polygons[line] = calloc(count_memory, sizeof(double));
             line++;
-
 
             for (int i = 1; buffer[i] != '\0'; i++) {
                 if (is_digit(buffer[i]) && buffer[i - 1] == ' ') {
