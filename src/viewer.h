@@ -9,6 +9,19 @@
 
 #define MAX_LENGHT 256
 
+typedef struct vertex
+{
+    double **matrix;
+    double minmax_x[2]; // min x, max x
+    double minmax_y[2];
+    double minmax_z[2];
+} vertex;
+
+typedef struct polygon {
+    double **polygons;
+    //polygon *next_struct;
+} polygon;
+
 typedef struct data
 {
     unsigned long int amount_vert;
@@ -18,22 +31,9 @@ typedef struct data
 } data;
 
 
-typedef struct vertex
-{
-    double **matrix;
-    double minmax_x[2] = {0}; // min x, max x
-    double minmax_y[2] = {0};
-    double minmax_z[2] = {0};
-} vertex;
-
-
-typedef struct polygon {
-    double **polygons;
-    //polygon *next_struct;
-} polygon;
 
 int open_obj(char *f_name, FILE **file);
-void counter_vert(FILE *file, data *input_d);
+void counter_vert(FILE **file, data *input_d);
 void counter_pol(FILE **file, data *input_d);
 int memory_vert(data *input_d);
 int memory_pol(data *input_d);
