@@ -1,21 +1,41 @@
 #include "viewer.h"
 
 int main() {
+    FILE *file = NULL;
+    //data *input = NULL;
+    vertex v;
+    polygon p;
+    //data input;
 
-
-}
-
-int open_obj(char *f_name, FILE **file) {
+    v.matrix_vert = NULL;
+    
     int err_flag = 0;
-    *file = fopen(f_name, "r");
+    file = fopen("abc.obj", "r");
     if(!file) err_flag = 1;
-    return err_flag;
+
+   
+    counter_vert(file, &v);
+    counter_pol(file, &p);
+    memory_vert(&v);
+    
+
+    printf("%ld\n", v.amount_vert);
+    printf("%ld\n", p.amount_pol);
+    return 0;
 }
 
-void counter_vert(FILE **file, data *input_d) {
-    rewind(file);
+// int open_obj(char *f_name, FILE *file) {
+//     int err_flag = 0;
+//     file = fopen(f_name, "r");
+//     if(!file) err_flag = 1;
+//     return err_flag;
+// }
+
+void counter_vert(FILE *file, vertex *input_d) {
+    //rewind(file);
     char *buffer = NULL;
     size_t len = MAX_LENGHT;
+    input_d->amount_vert = 0;
     while ((getline(&buffer, &len, file)) != -1) {
         if (buffer[0] == 'v' && buffer[1] == ' ') {
             input_d->amount_vert++;
@@ -23,7 +43,7 @@ void counter_vert(FILE **file, data *input_d) {
     }
 }
 
-void counter_pol(FILE **file, data *input_d) {
+void counter_pol(FILE *file, polygon *input_d) {
     rewind(file);
     char *buffer = NULL;
     size_t len = MAX_LENGHT;
@@ -34,21 +54,22 @@ void counter_pol(FILE **file, data *input_d) {
     }
 }
 
-int memory_vert(data *input_d) {
-    int err_flag = 0;
-    input_d->data_v->matrix = calloc(input_d->amount_vert, sizeof(double *));
-    for (int i=0; i < input_d->amount_vert; i++) {
-        input_d->data_v->matrix[i] = calloc(3, sizeof(double));
+int memory_vert(vertex *input_d) {
+    //int err_flag = 0;
+    input_d->matrix_vert = calloc(input_d->amount_vert, sizeof(double *));
+    for (unsigned long int i=0; i < input_d->amount_vert; i++) {
+        input_d->matrix_vert[i] = calloc(3, sizeof(double));
     }
-
+    return 0;
 }
 
-int memory_pol(data *input_d) {
-    int err_flag = 0;
-    input_d->data_p->polygons = calloc(input_d->amount_pol, sizeof(double *));
+int memory_pol(polygon *input_d) {
+    //int err_flag = 0;
+    input_d->polygons = calloc(input_d->amount_pol, sizeof(double *));
+    return 0;
 }
 
-void get_vertex(FILE **file, data *input_d) {
+void get_vertex(FILE *file, vertex *input_d) {
     rewind(file);
     int i = 0;
 
@@ -57,7 +78,7 @@ void get_vertex(FILE **file, data *input_d) {
 
     while ((getline(&buffer, &len, file)) != -1) {
         if (buffer[0] == 'v' && buffer[1] == ' ') {
-            sscanf(buffer, "v %f %f %f", &input_d->data_v->matrix[i][0], &input_d->data_v->matrix[i][1], &input_d->data_v->matrix[i][2]);
+            sscanf(buffer, "v %lf %lf %lf", &input_d->matrix_vert[i][0], &input_d->matrix_vert[i][1], &input_d->matrix_vert[i][2]);
             i++;
         }
     }
@@ -70,34 +91,34 @@ void find_center(vertex *v, double *center_x, double *center_y, double *center_z
 }
 
 // нужно занулить значения вначале
-void fill_min_max(data *input_d) {
-    for (int i = 0; i < input_d->amount_vert; i++) {
-        if (input_d->data_v->matrix[i][0] < input_d->data_v->minmax_x[0]) {
-            input_d->data_v->minmax_x[0] = input_d->data_v->matrix[i][0];
+void fill_min_max(vertex *input_d) {
+    for (unsigned long int i = 0; i < input_d->amount_vert; i++) {
+        if (input_d->matrix_vert[i][0] < input_d->minmax_x[0]) {
+            input_d->minmax_x[0] = input_d->matrix_vert[i][0];
         }
-        else if (input_d->data_v->matrix[i][0] < input_d->data_v->minmax_x[1]) {
-            input_d->data_v->minmax_x[1] = input_d->data_v->matrix[i][0];
+        else if (input_d->matrix_vert[i][0] < input_d->minmax_x[1]) {
+            input_d->minmax_x[1] = input_d->matrix_vert[i][0];
         }
         
-        if (input_d->data_v->matrix[i][1] < input_d->data_v->minmax_y[0]) {
-            input_d->data_v->minmax_y[0] = input_d->data_v->matrix[i][1];
+        if (input_d->matrix_vert[i][1] < input_d->minmax_y[0]) {
+            input_d->minmax_y[0] = input_d->matrix_vert[i][1];
         }
-        else if (input_d->data_v->matrix[i][1] < input_d->data_v->minmax_y[1]) {
-            input_d->data_v->minmax_y[1] = input_d->data_v->matrix[i][1];
+        else if (input_d->matrix_vert[i][1] < input_d->minmax_y[1]) {
+            input_d->minmax_y[1] = input_d->matrix_vert[i][1];
         }
 
-        if (input_d->data_v->matrix[i][2] < input_d->data_v->minmax_z[0]) {
-            input_d->data_v->minmax_x[0] = input_d->data_v->matrix[i][2];
+        if (input_d->matrix_vert[i][2] < input_d->minmax_z[0]) {
+            input_d->minmax_x[0] = input_d->matrix_vert[i][2];
         }
-        else if (input_d->data_v->matrix[i][2] < input_d->data_v->minmax_z[1]) {
-            input_d->data_v->minmax_z[1] = input_d->data_v->matrix[i][2];
+        else if (input_d->matrix_vert[i][2] < input_d->minmax_z[1]) {
+            input_d->minmax_z[1] = input_d->matrix_vert[i][2];
         }
     }
 }
 
-void get_pol(FILE **file, data *input_d) {
+void get_pol(FILE *file, polygon *input_d) {
     rewind(file);
-    int i = 0;
+    //int i = 0;
     int k = 0;
     int amount_in_pol = 0;
     int count_memory = 0;
@@ -117,7 +138,7 @@ void get_pol(FILE **file, data *input_d) {
                 }
             }
 
-            input_d->data_p->polygons[line] = calloc(count_memory, sizeof(double));
+            input_d->polygons[line] = calloc(count_memory, sizeof(double));
             line++;
 
             for (int i = 1; buffer[i] != '\0'; i++) {
@@ -130,9 +151,9 @@ void get_pol(FILE **file, data *input_d) {
                         i++;
                     } 
                     new_buf[k] = '\0';
-                    input_d->data_p->polygons[line][amount_in_pol] = atof(new_buf);
+                    input_d->polygons[line][amount_in_pol] = atof(new_buf);
                     amount_in_pol++;
-                    *new_buf = "\0";
+                    new_buf[0] = '\0';
                 }
             }
             count_memory = 0;
