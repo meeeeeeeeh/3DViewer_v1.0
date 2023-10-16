@@ -44,5 +44,7 @@ void get_pol(FILE *file, polygon *input_d);
 int is_digit(char buffer);
 void fill_min_max(vertex *input_d);
 void find_center(vertex *v, double *center_x, double *center_y, double *center_z);
+void remove_matrix(polygon *input_d, vertex *vert_d);
+void all_is_null(polygon *input_d, vertex *vert_d);
 
 #endif  // INC_3D_VIEWER_PARSER_H
