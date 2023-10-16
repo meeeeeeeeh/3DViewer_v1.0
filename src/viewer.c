@@ -30,12 +30,21 @@ int main() {
             printf("\n");
         }
 
-        remove_matrix(&p, &v);
+        //remove_matrix(&p, &v);
     }
     
     fclose(file);
-    
 
+    printf("\n\n\n");
+
+    fill_min_max(&v);
+
+    printf("x: %f %f\n", v.minmax_x[0], v.minmax_x[1]);
+    printf("y: %f %f\n", v.minmax_y[0], v.minmax_y[1]);
+    printf("z: %f %f\n", v.minmax_z[0], v.minmax_z[1]);
+
+    
+    printf("\nerrors - %d",err_flag);
     return err_flag;
 }
 

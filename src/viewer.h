@@ -42,9 +42,14 @@ int memory_pol(polygon *input_d);
 void get_vertex(FILE *file, vertex *input_d);
 void get_pol(FILE *file, polygon *input_d);
 int is_digit(char buffer);
-void fill_min_max(vertex *input_d);
-void find_center(vertex *v, double *center_x, double *center_y, double *center_z);
 void remove_matrix(polygon *input_d, vertex *vert_d);
 void all_is_null(polygon *input_d, vertex *vert_d);
-
+void centralize(vertex *v, double *center_x, double *center_y, double *center_z);
+void decrease(vertex *v, double value, double max);
+int matrix_value_operations(vertex *v, double value, char op);
+void rotation_z(vertex *v, double angle);
+void rotation_x(vertex *v, double angle);
+void rotation_y(vertex *v, double angle);
+void fill_min_max(vertex *input_d);
+double find_center(vertex *v, double *center_x, double *center_y, double *center_z);
 #endif  // INC_3D_VIEWER_PARSER_H
