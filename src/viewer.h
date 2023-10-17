@@ -47,13 +47,12 @@ void remove_matrix(polygon *input_d, vertex *vert_d);
 void all_is_null(polygon *input_d, vertex *vert_d);
 double centralize(vertex *v, double *center_x, double *center_y, double *center_z);
 void decrease(vertex *v, double value, double max);
-int matrix_value_operations(vertex *v, double value, char op);
 void rotation_z(vertex *v, double angle);
 void rotation_x(vertex *v, double angle);
 void rotation_y(vertex *v, double angle);
 void fill_min_max(vertex *input_d);
 void correct_image(vertex *v);
-void move(vertex *v, double value);
+void move(vertex *v, double value, char coord);
 void resize(vertex *v, double value);
 
 #endif  // INC_3D_VIEWER_PARSER_H

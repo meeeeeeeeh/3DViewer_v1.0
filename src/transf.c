@@ -50,7 +50,7 @@ double centralize(vertex *v, double *center_x, double *center_y, double *center_
 
 void decrease(vertex *v, double value, double max) {
     double k = (value - (value * (-1))) / max;
-    matrix_value_operations(v, k, '*');
+    resize(v, k);
 }
 
 // уменьшает и централрует изначальное изображение, запускается вначале работы
@@ -64,31 +64,26 @@ void correct_image(vertex *v) {
     decrease(v, 0.5, max);
 }
 
-int matrix_value_operations(vertex *v, double value, char op) {
-    int err = 0;
+void move(vertex *v, double value, char coord) {
     for (int i = 0; i < v->amount_vert; i++) {
-        for (int j = 0; j < 3; j++) {
-            if (op == '*') v->matrix_vert[i][j] *= value;
-            else if (op == '+') v->matrix_vert[i][j] += value;
-            else if (op == '/' && value != 0) { // возможно нужно поменять местами операнты
-
-                v->matrix_vert[i][j] /= value;
-                if (v->matrix_vert[i][j] == 0) {
-                    v->matrix_vert[i][j] += 0.000001; // не уверена что сработает
-                }
-            }
-            else err = 1;
+        if (coord == 'x') {
+            v->matrix_vert[i][0] += value;
+        }
+        else if (coord == 'y') {
+            v->matrix_vert[i][1] += value;
+        }
+        else if (coord == 'z') {
+            v->matrix_vert[i][2] += value;
         }
     }
-    return err;
-}
-
-void move(vertex *v, double value) {
-    matrix_value_operations(v, value, '+');
 }
 
 void resize(vertex *v, double value) {
-    matrix_value_operations(v, value, '/');
+    for (int i = 0; i < v->amount_vert; i++) {
+        for (int j = 0; j < 3; j++) {
+            v->matrix_vert[i][j] *= value;
+        }
+    }
 }
 
 void rotation_z(vertex *v, double angle) {
