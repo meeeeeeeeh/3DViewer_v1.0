@@ -21,6 +21,7 @@ typedef struct vertex
 typedef struct polygon {
     double **polygons;
     unsigned long int amount_pol;
+    double *amount_pol_on_string;
     //polygon *next_struct;
 } polygon;
 

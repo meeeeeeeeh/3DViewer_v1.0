@@ -86,6 +86,7 @@ int memory_vert(vertex *input_d) {
 int memory_pol(polygon *input_d) {
     //int err_flag = 0;
     input_d->polygons = calloc(input_d->amount_pol, sizeof(double *));
+    input_d->amount_pol_on_string = calloc(input_d->amount_pol, sizeof(double *));
     return 0;
 }
 
@@ -148,8 +149,10 @@ void get_pol(FILE *file, polygon *input_d) {
                 
             }
             printf("\n");
-            line++;
+            
             count_memory = 0;
+            input_d->amount_pol_on_string[line] = amount_in_pol+1;
+            line++;
             amount_in_pol = 0;
         }
 
@@ -169,6 +172,9 @@ void remove_matrix(polygon *input_d, vertex *vert_d) {
     }
     free(input_d->polygons);
     input_d->polygons= NULL;
+  }
+  if (input_d->amount_pol_on_string) {
+    free(input_d->amount_pol_on_string);
   }
 
   if (vert_d->matrix_vert) {
