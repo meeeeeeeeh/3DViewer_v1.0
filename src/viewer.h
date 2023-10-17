@@ -38,8 +38,8 @@ typedef struct polygon {
 //int open_obj(char *f_name, FILE *file);
 void counter_vert(FILE *file, vertex *input_d);
 void counter_pol(FILE *file, polygon *input_d);
-int memory_vert(vertex *input_d);
-int memory_pol(polygon *input_d);
+void memory_vert(vertex *input_d);
+void memory_pol(polygon *input_d);
 void get_vertex(FILE *file, vertex *input_d);
 void get_pol(FILE *file, polygon *input_d);
 int is_digit(char buffer);
