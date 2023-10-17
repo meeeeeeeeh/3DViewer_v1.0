@@ -141,7 +141,7 @@ void get_pol(FILE *file, polygon *input_d) {
                         i++;
                     } 
                     //new_buf[k] = '\0';
-                    input_d->polygons[line][amount_in_pol] = atof(new_buf);
+                    input_d->polygons[line][amount_in_pol] = atof(new_buf) - 1;
                     printf("%f ", input_d->polygons[line][amount_in_pol]);
                     amount_in_pol++;
                     k = 0;
