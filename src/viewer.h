@@ -33,7 +33,7 @@ typedef struct polygon {
 //     polygon *data_p;
 // } data;
 
-
+int parser(char *filename, vertex *v, polygon *p);
 
 //int open_obj(char *f_name, FILE *file);
 void counter_vert(FILE *file, vertex *input_d);
@@ -54,5 +54,6 @@ void fill_min_max(vertex *input_d);
 void correct_image(vertex *v);
 void move(vertex *v, double value, char coord);
 void resize(vertex *v, double value);
+
 
 #endif  // INC_3D_VIEWER_PARSER_H
