@@ -30,7 +30,7 @@ void fill_min_max(vertex *input_d) {
 }
 
 // возвращает самый большой максимум (нужно для ресайза)
-double centralize(vertex *v, double *center_x, double *center_y, double *center_z) {
+void centralize(vertex *v, double *center_x, double *center_y, double *center_z) {
     *center_x = v->minmax_x[0] + (v->minmax_x[1] - v->minmax_x[0]) / 2;
     *center_y = v->minmax_y[0] + (v->minmax_y[1] - v->minmax_y[0]) / 2;
     *center_z = v->minmax_z[0] + (v->minmax_z[1] - v->minmax_z[0]) / 2;
@@ -44,11 +44,18 @@ double centralize(vertex *v, double *center_x, double *center_y, double *center_
         v->matrix_vert[i][1] -= *(center_y); 
         v->matrix_vert[i][2] -= *(center_z); 
     }
-    return max;
 }
 
 
-void decrease(vertex *v, double value, double max) {
+void decrease(vertex *v, double value) {
+    double dif_x = v->minmax_x[1] - v->minmax_x[0];
+    double dif_y = v->minmax_y[1] - v->minmax_y[0];
+    double dif_z = v->minmax_z[1] - v->minmax_z[0]; 
+
+    double max = dif_x;
+    if (max < dif_y) max = dif_y;
+    if (max < dif_z) max = dif_z;   
+
     double k = (value - (value * (-1))) / max;
     resize(v, k);
 }
@@ -59,9 +66,9 @@ void correct_image(vertex *v) {
     double center_y = 0;
     double center_z = 0;
     double max = 0;
-    //исправить макс
-    max = centralize(v, &center_x, &center_y, &center_z);
-    decrease(v, 0.5, max);
+    
+    centralize(v, &center_x, &center_y, &center_z);
+    decrease(v, 0.5);
 }
 
 void move(vertex *v, double value, char coord) {
