@@ -1,23 +1,21 @@
 #include "viewer.h"
 
-int main() {
+int parser(char *filename, vertex *v, polygon *p) {
     FILE *file = NULL;
     int err_flag = 0;
     
-    file = fopen("abc.obj", "r");
+    file = fopen(filename, "r");
     if(!file) err_flag = 1;
     else {
-       vertex v;
-        polygon p;
+        all_is_null(p, v);
+        counter_vert(file, v);
+        counter_pol(file, p);
+        memory_vert(v);
+        memory_pol(p);
+        get_vertex(file, v);
+        get_pol(file, p);
+        //remove_matrix(&p, &v);
 
-        all_is_null(&p, &v);
-        counter_vert(file, &v);
-        counter_pol(file, &p);
-        memory_vert(&v);
-        memory_pol(&p);
-        get_vertex(file, &v);
-        get_pol(file, &p);
-        remove_matrix(&p, &v);
     }
     fclose(file);
     return err_flag;

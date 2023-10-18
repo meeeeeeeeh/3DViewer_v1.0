@@ -39,7 +39,7 @@ double centralize(vertex *v, double *center_x, double *center_y, double *center_
     if (max < *(center_y)) max = *(center_y);
     if (max < *(center_z)) max = *(center_z);
 
-    for (int i = 0; i < v->amount_vert; i++) {
+    for (long unsigned int i = 0; i < v->amount_vert; i++) {
         v->matrix_vert[i][0] -= *(center_x); 
         v->matrix_vert[i][1] -= *(center_y); 
         v->matrix_vert[i][2] -= *(center_z); 
@@ -59,13 +59,13 @@ void correct_image(vertex *v) {
     double center_y = 0;
     double center_z = 0;
     double max = 0;
-
+    //исправить макс
     max = centralize(v, &center_x, &center_y, &center_z);
     decrease(v, 0.5, max);
 }
 
 void move(vertex *v, double value, char coord) {
-    for (int i = 0; i < v->amount_vert; i++) {
+    for (long unsigned int i = 0; i < v->amount_vert; i++) {
         if (coord == 'x') {
             v->matrix_vert[i][0] += value;
         }
@@ -79,7 +79,7 @@ void move(vertex *v, double value, char coord) {
 }
 
 void resize(vertex *v, double value) {
-    for (int i = 0; i < v->amount_vert; i++) {
+    for (long unsigned int i = 0; i < v->amount_vert; i++) {
         for (int j = 0; j < 3; j++) {
             v->matrix_vert[i][j] *= value;
         }
@@ -87,7 +87,7 @@ void resize(vertex *v, double value) {
 }
 
 void rotation_z(vertex *v, double angle) {
-    for (int i = 0; i < v->amount_vert; i++) {
+    for (long unsigned int i = 0; i < v->amount_vert; i++) {
         double temp_x = v->matrix_vert[i][0];
         double temp_y = v->matrix_vert[i][1];
 
@@ -97,7 +97,7 @@ void rotation_z(vertex *v, double angle) {
 }
 
 void rotation_x(vertex *v, double angle) {
-    for (int i = 0; i < v->amount_vert; i++) {
+    for (long unsigned int i = 0; i < v->amount_vert; i++) {
         double temp_y = v->matrix_vert[i][1];
         double temp_z = v->matrix_vert[i][2];
         
@@ -107,7 +107,7 @@ void rotation_x(vertex *v, double angle) {
 }
 
 void rotation_y(vertex *v, double angle) {
-    for (int i = 0; i < v->amount_vert; i++) {
+    for (long unsigned int i = 0; i < v->amount_vert; i++) {
         double temp_x = v->matrix_vert[i][0];
         double temp_z = v->matrix_vert[i][2];
         

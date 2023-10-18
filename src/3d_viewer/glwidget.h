@@ -1,9 +1,9 @@
 #ifndef GLWIDGET_H
 #define GLWIDGET_H
 
-#include <QGLWdget>
+#include <QOpenGLWdget>
 
-class GLWidget : public QGLWdget
+class GLWidget : public QOpenGLWdget
 {
 public:
     GLWidget();
