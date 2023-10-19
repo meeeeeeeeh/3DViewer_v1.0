@@ -3,6 +3,9 @@
 GLWidget::GLWidget(QWidget *parent) :
     QOpenGLWidget(parent)
 {
+    this->R = 1;
+    this->wired = false;
+
 }
 
 void GLWidget::initializeDL()
@@ -21,6 +24,11 @@ void GLWidget::paintGL()
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     glColor3f(1, 0, 0);
+
+//    if(wired)
+//        glutWireSphere(1, 20, 20);
+//    else
+//        glutSolidSphere(1, 20, 20);
 }
 
 void GLWidget::resizeGL(int w, int h)

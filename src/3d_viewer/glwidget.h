@@ -12,6 +12,10 @@ public:
     void initializeDL();
     void paintGL();
     void resizeGL(int w, int h);
+
+    int R;
+    float x, y, z;
+    bool wired;
 };
 
 #endif // GLWIDGET_H
