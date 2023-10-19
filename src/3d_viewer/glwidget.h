@@ -1,12 +1,17 @@
 #ifndef GLWIDGET_H
 #define GLWIDGET_H
 
-#include <QOpenGLWdget>
+#include <QOpenGLWidget>
+#include "mainwindow.h"
 
-class GLWidget : public QOpenGLWdget
+class GLWidget : public QOpenGLWidget
 {
+    Q_OBJECT
 public:
-    GLWidget();
+    explicit GLWidget(QWidget *parent = 0);
+    void initializeDL();
+    void paintGL();
+    void resizeGL(int w, int h);
 };
 
 #endif // GLWIDGET_H
