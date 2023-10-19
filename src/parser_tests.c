@@ -370,6 +370,51 @@ START_TEST(move_test_z) {
 }
 END_TEST
 
+START_TEST(centr_test) {
+  double **data = calloc(3, sizeof(double *));
+  for (int i = 0; i < 3; i++){
+    data[i] = calloc(3, sizeof(double));
+  }
+
+  data[0][0] = -0.500000 ;
+  data[0][1] = 0.000000;
+  data[0][2] = 0.500000;
+
+  data[1][0] =0.500000;
+  data[1][1] = 0.000000;
+  data[1][2] = 0.500000;
+
+  data[2][0] = 0.500000;
+  data[2][1] = 0.000000;
+  data[2][2] = -0.500000;
+
+  vertex v;
+  polygon p;
+  char *test_file = "abc.obj";
+  parser(test_file, &v, &p);
+
+  //v -1.42 -1.5 1.42
+  //v -0.58 -1.5 1.42
+  //v -0.58 -1.5 0.58
+
+  //-0.500000 0.000000 0.500000 
+  //0.500000 0.000000 0.500000 
+  //0.500000 0.000000 -0.500000
+  
+  correct_image(&v);
+  for(int i; i < 3; i++) {
+    for(int j; j < 3; j++) {
+      ck_assert_double_eq(v.matrix_vert[i][j], data[i][j]);
+    }
+  }
+  
+  remove_matrix(&p, &v);
+  for(int i; i < 3; i++) {
+    free(data[i]);
+  }
+}
+END_TEST
+
 
 Suite *suite_viewer(void) {
   Suite *s = suite_create("suite_3d_view");
@@ -388,7 +433,7 @@ Suite *suite_viewer(void) {
   tcase_add_test(affine, move_test_x);
   tcase_add_test(affine, move_test_y);
   tcase_add_test(affine, move_test_z);
-
+  tcase_add_test(affine, centr_test);
 
   suite_add_tcase(s, tc);
   suite_add_tcase(s, affine);
