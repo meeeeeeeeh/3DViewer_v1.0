@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "glwidget.h"
+#include "../viewer.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -42,4 +44,11 @@ void MainWindow::on_checkBox_clicked(bool checked)
 {
     this->ui->GLwidget->wired = checked;
 }
+
+
+//void MainWindow::on_draw_clicked()
+//{
+//    initializeDL();
+//    paintGL();
+//}
 

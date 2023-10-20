@@ -7,6 +7,17 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+#ifdef __cplusplus
+
+extern "C" {
+#endif
+
+#include "../viewer.h"
+
+#ifdef __cplusplus
+}
+#endif
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -25,6 +36,8 @@ private slots:
     void on_R_valueChanged(double arg1);
 
     void on_checkBox_clicked(bool checked);
+
+    //void on_draw_clicked();
 
 private:
     Ui::MainWindow *ui;

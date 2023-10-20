@@ -3,6 +3,7 @@
 
 #include <QOpenGLWidget>
 #include "mainwindow.h"
+#include "../viewer.h"
 
 class GLWidget : public QOpenGLWidget
 {

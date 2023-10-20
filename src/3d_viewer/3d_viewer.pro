@@ -11,11 +11,14 @@ CONFIG += c++17
 SOURCES += \
     glwidget.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp\
+    ../viewer.c\
+    ../transf.c
 
 HEADERS += \
     glwidget.h \
-    mainwindow.h
+    mainwindow.h\
+    ../viewer.h
 
 FORMS += \
     mainwindow.ui
