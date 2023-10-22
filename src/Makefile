@@ -1,12 +1,12 @@
 CC = gcc
-CFLAGC =  -Wall -Werror -Wextra -fsanitize=address 
+CFLAGC =  -Wall -Werror -Wextra -fsanitize=address -g -lcheck -pthread -lm
 SOURCES = viewer.c
 OBJECTS = viewer.o
 
 
 all: tests 
 
-tests:
+tests: 
 	$(CC) $(CFLAGC) -lcheck viewer.c transf.c parser_tests.c s21_main_test.c -o test
 	./test
 
@@ -25,8 +25,11 @@ install:
 uninstall:
 	make clean
 
+
 dvi:
-	open doc.html
+	doxygen 
+	open doxygen/html/index.html
+
 
 dist:
 	rm -rf Archive_3DWieve_1.0/
@@ -55,11 +58,9 @@ clean:
 	rm -rf *.gcno
 	rm -rf *.info
 	rm -rf test
-	rm -rf Archive_3DWieve_1.0 
 	rm -rf *tgz
 	rm -rf build
-	rm -rf 3DWieve/qmake_qmake_qm_files.qrc
-	rm -rf 3DWieve/.qmake.stash
-	rm -rf 3DWieve/*.o
+	rm -rf doxygen
+
 
 rebuild: clean all

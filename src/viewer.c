@@ -14,10 +14,10 @@ int parser(char *filename, vertex *v, polygon *p) {
         memory_pol(p);
         get_vertex(file, v);
         get_pol(file, p);
+        fclose(file);
         //remove_matrix(&p, &v);
 
     }
-    fclose(file);
     return err_flag;
 }
 
