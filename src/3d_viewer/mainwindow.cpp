@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 #include "glwidget.h"
 #include "../viewer.h"
+#include <QFileDialog>
+
+#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -46,9 +49,36 @@ void MainWindow::on_checkBox_clicked(bool checked)
 }
 
 
-//void MainWindow::on_draw_clicked()
-//{
-//    initializeDL();
-//    paintGL();
-//}
+void MainWindow::on_file_clicked()
+{
+    QString filter = "All files (*.*) ;; OBJ Files (*.obj)";
+    QString path = QFileDialog::getOpenFileName(this, "Open file...", "", filter);
+
+   qDebug() << path;
+
+    vertex *v;
+    polygon *p;
+    //char f_name[15] = "cube.obj";
+
+    std::string str = path.toStdString();
+    const char* ppp = str.c_str();
+
+    int err = 0;
+
+    qDebug() << ppp;
+
+    err = parser(ppp, v, p);
+
+    qDebug() << err;
+
+    qDebug() << v->amount_vert;
+
+    this->ui->GLwidget->vert_struct = v;
+    this->ui->GLwidget->pol_struct = p;
+
+    qDebug() << v->amount_vert;
+
+
+
+}
 

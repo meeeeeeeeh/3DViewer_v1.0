@@ -26,6 +26,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+
 private slots:
     void on_X_valueChanged(double arg1);
 
@@ -37,7 +38,7 @@ private slots:
 
     void on_checkBox_clicked(bool checked);
 
-    //void on_draw_clicked();
+    void on_file_clicked();
 
 private:
     Ui::MainWindow *ui;

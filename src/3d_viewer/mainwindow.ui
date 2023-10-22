@@ -28,7 +28,7 @@
         <item>
          <widget class="QLabel" name="label">
           <property name="text">
-           <string>Position</string>
+           <string>Move</string>
           </property>
          </widget>
         </item>
@@ -69,7 +69,7 @@
         <item>
          <widget class="QLabel" name="label_2">
           <property name="text">
-           <string>Radius</string>
+           <string>Rotate</string>
           </property>
          </widget>
         </item>
@@ -103,14 +103,14 @@
           </property>
          </spacer>
         </item>
-        <item>
-         <widget class="QPushButton" name="draw">
-          <property name="text">
-           <string>Draw</string>
-          </property>
-         </widget>
-        </item>
        </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="file">
+        <property name="text">
+         <string>Choose file</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="pushButton">
