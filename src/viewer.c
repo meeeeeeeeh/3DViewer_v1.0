@@ -55,7 +55,7 @@ void memory_vert(vertex *input_d) {
 
 void memory_pol(polygon *input_d) {
     input_d->polygons = calloc(input_d->amount_pol, sizeof(double *));
-    input_d->amount_pol_on_string = calloc(input_d->amount_pol, sizeof(double));
+    input_d->amount_pol_on_string = calloc(input_d->amount_pol, sizeof(int));
 }
 
 void get_vertex(FILE *file, vertex *input_d) {

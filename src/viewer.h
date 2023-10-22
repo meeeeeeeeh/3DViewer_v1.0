@@ -21,21 +21,13 @@ typedef struct vertex
 typedef struct polygon {
     double **polygons;
     unsigned long int amount_pol;
-    double *amount_pol_on_string;
-    //polygon *next_struct;
+    int *amount_pol_on_string;
+    
 } polygon;
 
-// typedef struct data
-// {
-    
-    
-//     vertex *data_v;
-//     polygon *data_p;
-// } data;
 
 int parser(char *filename, vertex *v, polygon *p);
 
-//int open_obj(char *f_name, FILE *file);
 void counter_vert(FILE *file, vertex *input_d);
 void counter_pol(FILE *file, polygon *input_d);
 void memory_vert(vertex *input_d);
