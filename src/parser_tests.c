@@ -52,7 +52,7 @@ START_TEST(s21_test_2) {
       ck_assert_double_eq(v.matrix_vert[i][j], data[i][j]);
     }
   }
-  double *pol = calloc(5, sizeof(int));
+  int *pol = calloc(5, sizeof(int));
   pol[0] = 4;
   pol[1] = 4;
   pol[2] = 3;

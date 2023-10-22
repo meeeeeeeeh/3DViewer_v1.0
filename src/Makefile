@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGC =  -Wall -Werror -Wextra  
+CFLAGC =  -Wall -Werror -Wextra -fsanitize=address 
 SOURCES = viewer.c
 OBJECTS = viewer.o
 
