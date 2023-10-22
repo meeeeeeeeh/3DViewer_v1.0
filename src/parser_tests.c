@@ -47,15 +47,26 @@ START_TEST(s21_test_2) {
   polygon p;
   char *test_file = "abc.obj";
   parser(test_file, &v, &p);
-  for(int i; i < 3; i++) {
+  for(int i = 0; i < 3; i++) {
     for(int j; j < 3; j++) {
       ck_assert_double_eq(v.matrix_vert[i][j], data[i][j]);
     }
   }
+  double *pol = calloc(5, sizeof(double));
+  pol[0] = 4;
+  pol[1] = 4;
+  pol[2] = 3;
+  pol[3] = 3;
+  pol[4] = 4;
 
-  for(int i; i < 3; i++) {
+  for (int i = 0; i < 5; i++) {
+    ck_assert_double_eq(p.amount_pol_on_string[i], pol[i]);
+  }
+
+  for(int i = 0; i < 3; i++) {
     free(data[i]);
   }
+  free(pol);
   remove_matrix(&p, &v);
   
 }
