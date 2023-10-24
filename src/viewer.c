@@ -1,6 +1,6 @@
 #include "viewer.h"
 
-int parser(char *filename, vertex *v, polygon *p) {
+int parser(const char *filename, vertex *v, polygon *p) {
     FILE *file = NULL;
     int err_flag = 0;
     

@@ -44,7 +44,7 @@ typedef struct polygon {
 /// \param v указатель на структуру, описывающую вершины 
 /// \param p указатель на структуру, описывающую полигоны
 /// \return целое число - флаг ошибки
-int parser(char *filename, vertex *v, polygon *p);
+int parser(const char *filename, vertex *v, polygon *p);
 
 /// \brief считает количество вершин
 /// \param file указатель на поток
