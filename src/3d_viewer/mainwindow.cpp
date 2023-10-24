@@ -56,9 +56,10 @@ void MainWindow::on_file_clicked()
 
    qDebug() << path;
 
-    vertex *v;
-    polygon *p;
-    //char f_name[15] = "cube.obj";
+    vertex *v = (vertex *)calloc(1, sizeof(vertex));
+
+    polygon *p = (polygon *)calloc(1, sizeof(polygon));
+
 
     std::string str = path.toStdString();
     const char* ppp = str.c_str();
@@ -76,9 +77,7 @@ void MainWindow::on_file_clicked()
     this->ui->GLwidget->vert_struct = v;
     this->ui->GLwidget->pol_struct = p;
 
-    qDebug() << v->amount_vert;
-
-
+    qDebug() << this->ui->GLwidget->vert_struct->amount_vert;
 
 }
 

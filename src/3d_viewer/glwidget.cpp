@@ -1,5 +1,6 @@
 #include "glwidget.h"
 #include "../viewer.h"
+#include <QDebug>
 
 GLWidget::GLWidget(QWidget *parent) :
     QOpenGLWidget(parent)
@@ -9,37 +10,23 @@ GLWidget::GLWidget(QWidget *parent) :
 
 }
 
-//void GLWidget::initializeDL()
-//{
-//    glClearColor(0.2, 0.2, 0.2, 1);
-//    glEnable(GL_DEPTH_TEST);
-//    glEnable(GL_LIGHT0);
-//    glEnable(GL_LIGHTING);
-//    glEnable(GL_COLOR_MATERIAL);
-//}
-
-void GLWidget::paintGL()
+void GLWidget::initializeDL()
 {
     glClearColor(0.2, 0.2, 0.2, 1);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_LIGHT0);
     glEnable(GL_LIGHTING);
     glEnable(GL_COLOR_MATERIAL);
+}
 
-
+void GLWidget::paintGL()
+{
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     glColor3f(1, 0, 0);
 
 
-
-
-//    char f_name[15] = "cube.obj";
-
-//    int err = parser(f_name, &v, &p);
-
-//    printf("%ld", v.amount_vert);
 
 //   glBegin(GL_LINE_LOOP);
 //    for (unsigned long int i = 0; i < p->amount_pol; i++) {
@@ -50,6 +37,9 @@ void GLWidget::paintGL()
 //        }
 //    }
 //    glEnd();
+
+
+    qInfo() << vert_struct->amount_vert;
 
 //    glBegin(GL_POINTS);
 //    for (unsigned long int i = 0; i < vert_struct->amount_vert; i++) {

@@ -12,7 +12,7 @@ class GLWidget : public QOpenGLWidget
 
 public:
     explicit GLWidget(QWidget *parent = 0);
-    //void initializeDL();
+    void initializeDL();
     void paintGL();
     void resizeGL(int w, int h);
 
