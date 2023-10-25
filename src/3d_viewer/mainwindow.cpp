@@ -37,6 +37,19 @@ void MainWindow::on_file_path_clicked()
         this->ui->label_file->setText("No such file");
     }
 
+    QString str_v = QString::number(ui->GLwidget->vert_struct.amount_vert);
+    this->ui->label_vert->setText(str_v);
+
+    int ed_num;
+    if (ui->GLwidget->pol_struct.amount_pol % 2 == 0) {
+        ed_num = ui->GLwidget->pol_struct.amount_pol / 2;
+    } else {
+        ed_num = ((ui->GLwidget->pol_struct.amount_pol) + 1) / 2;
+    }
+    QString str_p = QString::number(ed_num);
+    this->ui->label_edges->setText(str_p);
+
+
 
     fill_min_max(&(ui->GLwidget->vert_struct));
     decrease(&(ui->GLwidget->vert_struct), 0.5);
