@@ -39,6 +39,7 @@ typedef struct polygon {
     
 } polygon;
 
+
 /// \brief распарсивает файл
 /// \param filename название файла
 /// \param v указатель на структуру, описывающую вершины 
@@ -133,6 +134,8 @@ void move(vertex *v, double value, char coord);
 /// \param v указатель на структуру, описывающую вершины 
 /// \param value во сколько раз необходимо изменить изображение
 void resize(vertex *v, double value);
+
+char *get_file_name(const char *f);
 
 
 #endif  // INC_3D_VIEWER_PARSER_H

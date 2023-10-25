@@ -32,15 +32,14 @@ public:
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout_2;
     QPushButton *file_path;
-    QHBoxLayout *horizontalLayout_6;
     QLabel *label_4;
     QLabel *label_file;
     QHBoxLayout *horizontalLayout_7;
     QLabel *label;
-    QLabel *label_3;
+    QLabel *label_vert;
     QHBoxLayout *horizontalLayout_8;
     QLabel *label_2;
-    QLabel *label_5;
+    QLabel *label_edges;
     QSpacerItem *verticalSpacer;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_2;
@@ -63,7 +62,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 635);
+        MainWindow->resize(921, 735);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -81,20 +80,20 @@ public:
 
         verticalLayout_2->addWidget(file_path);
 
-        horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
         label_4 = new QLabel(centralwidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
+        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Preferred);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
+        label_4->setSizePolicy(sizePolicy1);
 
-        horizontalLayout_6->addWidget(label_4);
+        verticalLayout_2->addWidget(label_4);
 
         label_file = new QLabel(centralwidget);
         label_file->setObjectName(QString::fromUtf8("label_file"));
 
-        horizontalLayout_6->addWidget(label_file);
-
-
-        verticalLayout_2->addLayout(horizontalLayout_6);
+        verticalLayout_2->addWidget(label_file);
 
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
@@ -103,10 +102,10 @@ public:
 
         horizontalLayout_7->addWidget(label);
 
-        label_3 = new QLabel(centralwidget);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_vert = new QLabel(centralwidget);
+        label_vert->setObjectName(QString::fromUtf8("label_vert"));
 
-        horizontalLayout_7->addWidget(label_3);
+        horizontalLayout_7->addWidget(label_vert);
 
 
         verticalLayout_2->addLayout(horizontalLayout_7);
@@ -118,10 +117,10 @@ public:
 
         horizontalLayout_8->addWidget(label_2);
 
-        label_5 = new QLabel(centralwidget);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_edges = new QLabel(centralwidget);
+        label_edges->setObjectName(QString::fromUtf8("label_edges"));
 
-        horizontalLayout_8->addWidget(label_5);
+        horizontalLayout_8->addWidget(label_edges);
 
 
         verticalLayout_2->addLayout(horizontalLayout_8);
@@ -148,11 +147,11 @@ public:
 
         Z = new QDoubleSpinBox(centralwidget);
         Z->setObjectName(QString::fromUtf8("Z"));
-        QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Fixed);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(Z->sizePolicy().hasHeightForWidth());
-        Z->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy2(QSizePolicy::Minimum, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(Z->sizePolicy().hasHeightForWidth());
+        Z->setSizePolicy(sizePolicy2);
         Z->setMinimum(-99.000000000000000);
         Z->setValue(0.000000000000000);
 
@@ -195,8 +194,8 @@ public:
 
         horizontalSlider = new QSlider(centralwidget);
         horizontalSlider->setObjectName(QString::fromUtf8("horizontalSlider"));
-        sizePolicy1.setHeightForWidth(horizontalSlider->sizePolicy().hasHeightForWidth());
-        horizontalSlider->setSizePolicy(sizePolicy1);
+        sizePolicy2.setHeightForWidth(horizontalSlider->sizePolicy().hasHeightForWidth());
+        horizontalSlider->setSizePolicy(sizePolicy2);
         horizontalSlider->setMinimum(-5);
         horizontalSlider->setMaximum(5);
         horizontalSlider->setSingleStep(1);
@@ -230,11 +229,11 @@ public:
 
         GLwidget = new GLWidget(centralwidget);
         GLwidget->setObjectName(QString::fromUtf8("GLwidget"));
-        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Preferred);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(GLwidget->sizePolicy().hasHeightForWidth());
-        GLwidget->setSizePolicy(sizePolicy2);
+        QSizePolicy sizePolicy3(QSizePolicy::Expanding, QSizePolicy::Preferred);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(GLwidget->sizePolicy().hasHeightForWidth());
+        GLwidget->setSizePolicy(sizePolicy3);
 
         horizontalLayout->addWidget(GLwidget);
 
@@ -253,9 +252,9 @@ public:
         label_4->setText(QCoreApplication::translate("MainWindow", "File name:", nullptr));
         label_file->setText(QString());
         label->setText(QCoreApplication::translate("MainWindow", "Vertices:", nullptr));
-        label_3->setText(QString());
+        label_vert->setText(QString());
         label_2->setText(QCoreApplication::translate("MainWindow", "Edges:", nullptr));
-        label_5->setText(QString());
+        label_edges->setText(QString());
         move->setText(QCoreApplication::translate("MainWindow", "Move", nullptr));
         rotate->setText(QCoreApplication::translate("MainWindow", "Rotate", nullptr));
         resize->setText(QCoreApplication::translate("MainWindow", "Resize", nullptr));

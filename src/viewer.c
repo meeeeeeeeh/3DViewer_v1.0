@@ -21,6 +21,15 @@ int parser(const char *filename, vertex *v, polygon *p) {
     return err_flag;
 }
 
+char *get_file_name(const char *f) {
+    char * res = NULL;
+   char *fp = (char *)f;
+   printf("%s", strrchr(fp, '/'));
+   res = strrchr(fp, '/');
+   *res++;
+   return res;
+}
+
 
 void counter_vert(FILE *file, vertex *input_d) {
     rewind(file);

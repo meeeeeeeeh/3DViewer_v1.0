@@ -38,6 +38,20 @@ private slots:
 
     void on_file_path_clicked();
 
+    void on_move_clicked();
+
+    void on_R_X_valueChanged(double arg1);
+
+    void on_R_Y_valueChanged(double arg1);
+
+    void on_R_Z_textChanged(const QString &arg1);
+
+    void on_rotate_clicked();
+
+    void on_resize_clicked();
+
+    void on_horizontalSlider_valueChanged(int value);
+
 private:
     Ui::MainWindow *ui;
 };

@@ -19,6 +19,34 @@ MainWindow::~MainWindow()
 }
 
 
+void MainWindow::on_file_path_clicked()
+{
+    QString filter = "All files (*.*) ;; OBJ Files (*.obj)";
+    QString path = QFileDialog::getOpenFileName(this, "Open file...", "", filter);
+
+    std::string str = path.toStdString();
+    const char* path_str = str.c_str();
+
+    int err = 0;  //  путь не найден
+    err = parser(path_str, &(ui->GLwidget->vert_struct), &(ui->GLwidget->pol_struct));
+
+    if (!err) {
+        this->ui->label_file->setText(get_file_name(path_str));
+    }
+    else {
+        this->ui->label_file->setText("No such file");
+    }
+
+
+    fill_min_max(&(ui->GLwidget->vert_struct));
+    decrease(&(ui->GLwidget->vert_struct), 0.5);
+
+    qDebug() << err;
+
+
+}
+
+
 void MainWindow::on_X_valueChanged(double arg1)
 {
     this->ui->GLwidget->x = arg1;
@@ -38,45 +66,51 @@ void MainWindow::on_Z_valueChanged(double arg1)
 
 
 
+void MainWindow::on_move_clicked()
+{
+
+
+
+}
+
+
+void MainWindow::on_R_X_valueChanged(double arg1)
+{
+
+}
+
+
+void MainWindow::on_R_Y_valueChanged(double arg1)
+{
+
+}
+
+
+void MainWindow::on_R_Z_textChanged(const QString &arg1)
+{
+
+}
+
+
+void MainWindow::on_rotate_clicked()
+{
+
+}
+
+
+void MainWindow::on_resize_clicked()
+{
+
+}
+
+
+void MainWindow::on_horizontalSlider_valueChanged(int value)
+{
+
+}
+
 
 void MainWindow::on_checkBox_clicked(bool checked)
 {
     this->ui->GLwidget->wired = checked;
 }
-
-
-void MainWindow::on_file_path_clicked()
-{
-    QString filter = "All files (*.*) ;; OBJ Files (*.obj)";
-    QString path = QFileDialog::getOpenFileName(this, "Open file...", "", filter);
-
-    //qDebug() << path;
-
-
-
-    std::string str = path.toStdString();
-    const char* ppp = str.c_str();
-
-    int err = 0;
-
-    //qDebug() << ppp;
-
-    err = parser(ppp, &(ui->GLwidget->vert_struct), &(ui->GLwidget->pol_struct));
-
-    fill_min_max(&(ui->GLwidget->vert_struct));
-    decrease(&(ui->GLwidget->vert_struct), 0.5);
-
-//    double center_x = 0;
-//    double center_y = 0;
-//    double center_z = 0;
-
-//    centralize( &(ui->GLwidget->vert_struct), &center_x, &center_y, &center_z);
-
-
-    qDebug() << err;
-
-
-    //qDebug() << this->ui->GLwidget->vert_struct.amount_vert;
-
-}
-
