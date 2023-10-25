@@ -34,11 +34,9 @@ private slots:
 
     void on_Z_valueChanged(double arg1);
 
-    void on_R_valueChanged(double arg1);
-
     void on_checkBox_clicked(bool checked);
 
-    void on_file_clicked();
+    void on_file_path_clicked();
 
 private:
     Ui::MainWindow *ui;

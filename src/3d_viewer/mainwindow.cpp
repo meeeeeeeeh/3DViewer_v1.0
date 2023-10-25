@@ -37,10 +37,6 @@ void MainWindow::on_Z_valueChanged(double arg1)
 }
 
 
-void MainWindow::on_R_valueChanged(double arg1)
-{
-    this->ui->GLwidget->R = arg1;
-}
 
 
 void MainWindow::on_checkBox_clicked(bool checked)
@@ -49,16 +45,13 @@ void MainWindow::on_checkBox_clicked(bool checked)
 }
 
 
-void MainWindow::on_file_clicked()
+void MainWindow::on_file_path_clicked()
 {
     QString filter = "All files (*.*) ;; OBJ Files (*.obj)";
     QString path = QFileDialog::getOpenFileName(this, "Open file...", "", filter);
 
-   qDebug() << path;
+    //qDebug() << path;
 
-    vertex *v = (vertex *)calloc(1, sizeof(vertex));
-
-    polygon *p = (polygon *)calloc(1, sizeof(polygon));
 
 
     std::string str = path.toStdString();
@@ -66,18 +59,24 @@ void MainWindow::on_file_clicked()
 
     int err = 0;
 
-    qDebug() << ppp;
+    //qDebug() << ppp;
 
-    err = parser(ppp, v, p);
+    err = parser(ppp, &(ui->GLwidget->vert_struct), &(ui->GLwidget->pol_struct));
+
+    fill_min_max(&(ui->GLwidget->vert_struct));
+    decrease(&(ui->GLwidget->vert_struct), 0.5);
+
+//    double center_x = 0;
+//    double center_y = 0;
+//    double center_z = 0;
+
+//    centralize( &(ui->GLwidget->vert_struct), &center_x, &center_y, &center_z);
+
 
     qDebug() << err;
 
-    qDebug() << v->amount_vert;
 
-    this->ui->GLwidget->vert_struct = v;
-    this->ui->GLwidget->pol_struct = p;
-
-    qDebug() << this->ui->GLwidget->vert_struct->amount_vert;
+    //qDebug() << this->ui->GLwidget->vert_struct.amount_vert;
 
 }
 

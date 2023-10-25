@@ -21,11 +21,8 @@ public:
     bool wired;
 
 
-//    double **vertex_matrix;
-//    unsigned long int vertex_amount;
-
-    vertex *vert_struct;
-    polygon *pol_struct;
+    vertex vert_struct;
+    polygon pol_struct;
 
 };
 

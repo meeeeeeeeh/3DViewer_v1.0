@@ -14,9 +14,9 @@ void GLWidget::initializeDL()
 {
     glClearColor(0.2, 0.2, 0.2, 1);
     glEnable(GL_DEPTH_TEST);
-    glEnable(GL_LIGHT0);
-    glEnable(GL_LIGHTING);
-    glEnable(GL_COLOR_MATERIAL);
+//    glEnable(GL_LIGHT0);
+//    glEnable(GL_LIGHTING);
+//    glEnable(GL_COLOR_MATERIAL);
 }
 
 void GLWidget::paintGL()
@@ -27,34 +27,38 @@ void GLWidget::paintGL()
     glColor3f(1, 0, 0);
 
 
+    //correct_image(&vert_struct);
 
-//   glBegin(GL_LINE_LOOP);
-//    for (unsigned long int i = 0; i < p->amount_pol; i++) {
-//        for (int j = 0; j < p->amount_pol_on_string; j++) {
-//
-//            int index = p->polygons[i][j];
-//            glVertex3d(v->matrix_vert[index][0], v->matrix_vert[index][1], v->matrix_vert[index][2]);
-//        }
-//    }
-//    glEnd();
+    //decrease(&vert_struct, 0.5);
 
 
-    qInfo() << vert_struct->amount_vert;
 
-//    glBegin(GL_POINTS);
-//    for (unsigned long int i = 0; i < vert_struct->amount_vert; i++) {
 
-//        printf("%ld", vert_struct->amount_vert);
-//        glEnable(GL_BLEND);
-//        glVertex3d(vert_struct->matrix_vert[i][0], vert_struct->matrix_vert[i][1], vert_struct->matrix_vert[i][2]);
+   glBegin(GL_LINE_LOOP);
+    for (unsigned long int i = 0; i < pol_struct.amount_pol; i++) {
+        for (int j = 0; j < pol_struct.amount_pol_on_string[i]; j++) {
+            int index = pol_struct.polygons[i][j];
+            glVertex3d(vert_struct.matrix_vert[index][0], vert_struct.matrix_vert[index][1], vert_struct.matrix_vert[index][2]);
+        }
+    }
+    glEnd();
 
-//    }
-//    glEnd();
+
+
+    glBegin(GL_POINTS);
+    for (unsigned long int i = 0; i < vert_struct.amount_vert; i++) {
+        glEnable(GL_BLEND);
+        glVertex3d(vert_struct.matrix_vert[i][0], vert_struct.matrix_vert[i][1], vert_struct.matrix_vert[i][2]);
+    }
+    glEnd();
 
 //    if(wired)
 //        glutWireSphere(1, 20, 20);
 //    else
 //        glutSolidSphere(1, 20, 20);
+
+
+
 }
 
 void GLWidget::resizeGL(int w, int h)
