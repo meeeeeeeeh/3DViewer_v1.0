@@ -2,7 +2,7 @@
 
 int parser(const char *filename, vertex *v, polygon *p) {
     FILE *file = NULL;
-    int err_flag = 0;
+    int err_flag = is_obj_file(filename);
     
     file = fopen(filename, "r");
     if(!file) err_flag = 1;

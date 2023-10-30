@@ -43,17 +43,27 @@ public:
     QLabel *label_2;
     QLabel *label_edges;
     QSpacerItem *verticalSpacer;
+    QLabel *label_7;
     QHBoxLayout *horizontalLayout_6;
-    QLabel *label_5;
     QLabel *label_6;
-    QHBoxLayout *horizontalLayout_10;
-    QSpinBox *line_size;
     QSpinBox *dot_size;
     QLabel *label_3;
-    QPushButton *color_back;
-    QHBoxLayout *horizontalLayout_3;
+    QHBoxLayout *horizontalLayout_10;
+    QRadioButton *radioButton_3;
+    QRadioButton *radioButton_2;
+    QRadioButton *radioButton;
     QPushButton *color_vert;
+    QSpacerItem *verticalSpacer_2;
+    QLabel *label_8;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *label_5;
+    QSpinBox *line_size;
+    QLabel *label_9;
+    QHBoxLayout *horizontalLayout_9;
+    QRadioButton *radioButton_5;
+    QRadioButton *radioButton_4;
     QPushButton *color_lines;
+    QSpacerItem *verticalSpacer_3;
     QPushButton *move;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_2;
@@ -67,6 +77,8 @@ public:
     QDoubleSpinBox *R_Z;
     QPushButton *resize;
     QSlider *recize_val;
+    QPushButton *color_back;
+    QSpacerItem *verticalSpacer_4;
     QHBoxLayout *horizontalLayout_11;
     QPushButton *image;
     QPushButton *gif;
@@ -79,13 +91,13 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1000, 800);
+        MainWindow->resize(1200, 1000);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
         MainWindow->setSizePolicy(sizePolicy);
-        MainWindow->setMinimumSize(QSize(1000, 800));
+        MainWindow->setMinimumSize(QSize(1200, 1000));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayout = new QHBoxLayout(centralwidget);
@@ -151,60 +163,108 @@ public:
 
         verticalLayout_2->addItem(verticalSpacer);
 
+        label_7 = new QLabel(centralwidget);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+
+        verticalLayout_2->addWidget(label_7);
+
         horizontalLayout_6 = new QHBoxLayout();
         horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
-        label_5 = new QLabel(centralwidget);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-
-        horizontalLayout_6->addWidget(label_5);
-
         label_6 = new QLabel(centralwidget);
         label_6->setObjectName(QString::fromUtf8("label_6"));
 
         horizontalLayout_6->addWidget(label_6);
 
-
-        verticalLayout_2->addLayout(horizontalLayout_6);
-
-        horizontalLayout_10 = new QHBoxLayout();
-        horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
-        line_size = new QSpinBox(centralwidget);
-        line_size->setObjectName(QString::fromUtf8("line_size"));
-
-        horizontalLayout_10->addWidget(line_size);
-
         dot_size = new QSpinBox(centralwidget);
         dot_size->setObjectName(QString::fromUtf8("dot_size"));
 
-        horizontalLayout_10->addWidget(dot_size);
+        horizontalLayout_6->addWidget(dot_size);
 
 
-        verticalLayout_2->addLayout(horizontalLayout_10);
+        verticalLayout_2->addLayout(horizontalLayout_6);
 
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
         verticalLayout_2->addWidget(label_3);
 
-        color_back = new QPushButton(centralwidget);
-        color_back->setObjectName(QString::fromUtf8("color_back"));
+        horizontalLayout_10 = new QHBoxLayout();
+        horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
+        radioButton_3 = new QRadioButton(centralwidget);
+        radioButton_3->setObjectName(QString::fromUtf8("radioButton_3"));
 
-        verticalLayout_2->addWidget(color_back);
+        horizontalLayout_10->addWidget(radioButton_3);
 
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        radioButton_2 = new QRadioButton(centralwidget);
+        radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
+
+        horizontalLayout_10->addWidget(radioButton_2);
+
+        radioButton = new QRadioButton(centralwidget);
+        radioButton->setObjectName(QString::fromUtf8("radioButton"));
+
+        horizontalLayout_10->addWidget(radioButton);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_10);
+
         color_vert = new QPushButton(centralwidget);
         color_vert->setObjectName(QString::fromUtf8("color_vert"));
 
-        horizontalLayout_3->addWidget(color_vert);
+        verticalLayout_2->addWidget(color_vert);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer_2);
+
+        label_8 = new QLabel(centralwidget);
+        label_8->setObjectName(QString::fromUtf8("label_8"));
+
+        verticalLayout_2->addWidget(label_8);
+
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        label_5 = new QLabel(centralwidget);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+
+        horizontalLayout_3->addWidget(label_5);
+
+        line_size = new QSpinBox(centralwidget);
+        line_size->setObjectName(QString::fromUtf8("line_size"));
+
+        horizontalLayout_3->addWidget(line_size);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_3);
+
+        label_9 = new QLabel(centralwidget);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+
+        verticalLayout_2->addWidget(label_9);
+
+        horizontalLayout_9 = new QHBoxLayout();
+        horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
+        radioButton_5 = new QRadioButton(centralwidget);
+        radioButton_5->setObjectName(QString::fromUtf8("radioButton_5"));
+
+        horizontalLayout_9->addWidget(radioButton_5);
+
+        radioButton_4 = new QRadioButton(centralwidget);
+        radioButton_4->setObjectName(QString::fromUtf8("radioButton_4"));
+
+        horizontalLayout_9->addWidget(radioButton_4);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_9);
 
         color_lines = new QPushButton(centralwidget);
         color_lines->setObjectName(QString::fromUtf8("color_lines"));
 
-        horizontalLayout_3->addWidget(color_lines);
+        verticalLayout_2->addWidget(color_lines);
 
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_2->addLayout(horizontalLayout_3);
+        verticalLayout_2->addItem(verticalSpacer_3);
 
         move = new QPushButton(centralwidget);
         move->setObjectName(QString::fromUtf8("move"));
@@ -291,6 +351,15 @@ public:
 
         verticalLayout->addWidget(recize_val);
 
+        color_back = new QPushButton(centralwidget);
+        color_back->setObjectName(QString::fromUtf8("color_back"));
+
+        verticalLayout->addWidget(color_back);
+
+        verticalSpacer_4 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer_4);
+
         horizontalLayout_11 = new QHBoxLayout();
         horizontalLayout_11->setObjectName(QString::fromUtf8("horizontalLayout_11"));
         image = new QPushButton(centralwidget);
@@ -355,15 +424,23 @@ public:
         label_vert->setText(QString());
         label_2->setText(QCoreApplication::translate("MainWindow", "Edges:", nullptr));
         label_edges->setText(QString());
-        label_5->setText(QCoreApplication::translate("MainWindow", "Thickness:", nullptr));
+        label_7->setText(QCoreApplication::translate("MainWindow", "Customize vertices:", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "Size:", nullptr));
-        label_3->setText(QCoreApplication::translate("MainWindow", "Set color:", nullptr));
-        color_back->setText(QCoreApplication::translate("MainWindow", "background", nullptr));
-        color_vert->setText(QCoreApplication::translate("MainWindow", "vertices", nullptr));
-        color_lines->setText(QCoreApplication::translate("MainWindow", "edges", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "Display method:", nullptr));
+        radioButton_3->setText(QCoreApplication::translate("MainWindow", "none", nullptr));
+        radioButton_2->setText(QCoreApplication::translate("MainWindow", "square", nullptr));
+        radioButton->setText(QCoreApplication::translate("MainWindow", "round", nullptr));
+        color_vert->setText(QCoreApplication::translate("MainWindow", "color", nullptr));
+        label_8->setText(QCoreApplication::translate("MainWindow", "Customize edges:", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "Thickness:", nullptr));
+        label_9->setText(QCoreApplication::translate("MainWindow", "Type:", nullptr));
+        radioButton_5->setText(QCoreApplication::translate("MainWindow", "solid", nullptr));
+        radioButton_4->setText(QCoreApplication::translate("MainWindow", "dashed", nullptr));
+        color_lines->setText(QCoreApplication::translate("MainWindow", "color", nullptr));
         move->setText(QCoreApplication::translate("MainWindow", "Move", nullptr));
         rotate->setText(QCoreApplication::translate("MainWindow", "Rotate", nullptr));
         resize->setText(QCoreApplication::translate("MainWindow", "Resize", nullptr));
+        color_back->setText(QCoreApplication::translate("MainWindow", "background color", nullptr));
         image->setText(QCoreApplication::translate("MainWindow", "image", nullptr));
         gif->setText(QCoreApplication::translate("MainWindow", "gif", nullptr));
         radioButton_bmp->setText(QCoreApplication::translate("MainWindow", "bmp", nullptr));

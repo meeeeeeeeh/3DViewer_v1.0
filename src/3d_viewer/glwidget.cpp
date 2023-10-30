@@ -21,55 +21,46 @@ void GLWidget::initializeDL()
 
 void GLWidget::paintGL()
 {
-    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    glColor3f(1, 0, 0);
-
-
-    //correct_image(&vert_struct);
-
-    //decrease(&vert_struct, 0.5);
+    if (!error) {
+        glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glMatrixMode(GL_MODELVIEW);
+        glLoadIdentity();
+        glColor3f(1, 0, 0);
 
 
 
 
-    glPointSize(0.1);
-    //glLineWidth(10);
 
-   glBegin(GL_LINES);
-    for (unsigned long int i = 0; i < pol_struct.amount_pol; i++) {
-        for (int j = 0; j < pol_struct.amount_pol_on_string[i]; j++) {
+        glPointSize(0.1);
+        //glLineWidth(10);
 
-            int index = pol_struct.polygons[i][j];
+       glBegin(GL_LINES);
+        for (unsigned long int i = 0; i < pol_struct.amount_pol; i++) {
+            for (int j = 0; j < pol_struct.amount_pol_on_string[i]; j++) {
 
-            if (j == 0 || j + 1 == pol_struct.amount_pol_on_string[i]) {
+                int index = pol_struct.polygons[i][j];
 
-                glVertex3d(vert_struct.matrix_vert[index][0], vert_struct.matrix_vert[index][1], vert_struct.matrix_vert[index][2]);
+                if (j == 0 || j + 1 == pol_struct.amount_pol_on_string[i]) {
+
+                    glVertex3d(vert_struct.matrix_vert[index][0], vert_struct.matrix_vert[index][1], vert_struct.matrix_vert[index][2]);
+                }
+                else {
+                    glVertex3d(vert_struct.matrix_vert[index][0], vert_struct.matrix_vert[index][1], vert_struct.matrix_vert[index][2]);
+                    glVertex3d(vert_struct.matrix_vert[index][0], vert_struct.matrix_vert[index][1], vert_struct.matrix_vert[index][2]);
+                }
+
             }
-            else {
-                glVertex3d(vert_struct.matrix_vert[index][0], vert_struct.matrix_vert[index][1], vert_struct.matrix_vert[index][2]);
-                glVertex3d(vert_struct.matrix_vert[index][0], vert_struct.matrix_vert[index][1], vert_struct.matrix_vert[index][2]);
-            }
-
         }
+        glEnd();
+
+
+        glBegin(GL_POINTS);
+        for (unsigned long int i = 0; i < vert_struct.amount_vert; i++) {
+            glEnable(GL_BLEND);
+            glVertex3d(vert_struct.matrix_vert[i][0], vert_struct.matrix_vert[i][1], vert_struct.matrix_vert[i][2]);
+        }
+        glEnd();
     }
-    glEnd();
-
-
-
-
-    glBegin(GL_POINTS);
-    for (unsigned long int i = 0; i < vert_struct.amount_vert; i++) {
-        glEnable(GL_BLEND);
-        glVertex3d(vert_struct.matrix_vert[i][0], vert_struct.matrix_vert[i][1], vert_struct.matrix_vert[i][2]);
-    }
-    glEnd();
-
-//    if(wired)
-//        glutWireSphere(1, 20, 20);
-//    else
-//        glutSolidSphere(1, 20, 20);
 
 
 

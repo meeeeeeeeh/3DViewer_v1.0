@@ -29,7 +29,6 @@ public:
 
 private slots:
 
-
     void on_file_path_clicked();
 
     void on_move_clicked();
@@ -37,7 +36,6 @@ private slots:
     void on_rotate_clicked();
 
     void file_output(const char * path_str);
-
 
 
 private:
