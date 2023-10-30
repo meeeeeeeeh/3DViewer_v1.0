@@ -30,15 +30,15 @@ void fill_min_max(vertex *input_d) {
 }
 
 // возвращает самый большой максимум (нужно для ресайза)
-void centralize(vertex *v, double *center_x, double *center_y, double *center_z) {
-    *center_x = v->minmax_x[0] + (v->minmax_x[1] - v->minmax_x[0]) / 2.0;
-    *center_y = v->minmax_y[0] + (v->minmax_y[1] - v->minmax_y[0]) / 2.0;
-    *center_z = v->minmax_z[0] + (v->minmax_z[1] - v->minmax_z[0]) / 2.0;
+void centralize(vertex *v) {
+    double center_x = v->minmax_x[0] + (v->minmax_x[1] - v->minmax_x[0]) / 2.0;
+    double center_y = v->minmax_y[0] + (v->minmax_y[1] - v->minmax_y[0]) / 2.0;
+    double center_z = v->minmax_z[0] + (v->minmax_z[1] - v->minmax_z[0]) / 2.0;
 
     for (long unsigned int i = 0; i < v->amount_vert; i++) {
-        v->matrix_vert[i][0] -= *(center_x); 
-        v->matrix_vert[i][1] -= *(center_y); 
-        v->matrix_vert[i][2] -= *(center_z); 
+        v->matrix_vert[i][0] -= center_x;
+        v->matrix_vert[i][1] -= center_y;
+        v->matrix_vert[i][2] -= center_z;
     }
 }
 
@@ -56,20 +56,17 @@ void decrease(vertex *v, double value) {
     resize(v, k);
 }
 
-// уменьшает и централрует изначальное изображение, запускается вначале работы
-void correct_image(vertex *v) {
-    double center_x = 0;
-    double center_y = 0;
-    double center_z = 0;
-    //double max = 0;
+//// уменьшает и централрует изначальное изображение, запускается вначале работы
+//void correct_image(vertex *v) {
+
     
-    fill_min_max(v);
-    centralize(v, &center_x, &center_y, &center_z);
-    decrease(v, 0.5);
-}
+//    fill_min_max(v);
+//    centralize(v, &center_x, &center_y, &center_z);
+//    decrease(v, 0.5);
+//}
 
 
-void move(vertex *v, double value, char coord) {
+void move_matrix(vertex *v, double value, char coord) {
     for (long unsigned int i = 0; i < v->amount_vert; i++) {
         if (coord == 'x') {
             v->matrix_vert[i][0] += value;
@@ -92,6 +89,7 @@ void resize(vertex *v, double value) {
 }
 
 void rotation_z(vertex *v, double angle) {
+    angle = angle * M_PI / 180;
     for (long unsigned int i = 0; i < v->amount_vert; i++) {
         double temp_x = v->matrix_vert[i][0];
         double temp_y = v->matrix_vert[i][1];
@@ -102,6 +100,7 @@ void rotation_z(vertex *v, double angle) {
 }
 
 void rotation_x(vertex *v, double angle) {
+    angle = angle * M_PI / 180;
     for (long unsigned int i = 0; i < v->amount_vert; i++) {
         double temp_y = v->matrix_vert[i][1];
         double temp_z = v->matrix_vert[i][2];
@@ -112,11 +111,13 @@ void rotation_x(vertex *v, double angle) {
 }
 
 void rotation_y(vertex *v, double angle) {
+    angle = angle * M_PI / 180;
     for (long unsigned int i = 0; i < v->amount_vert; i++) {
         double temp_x = v->matrix_vert[i][0];
         double temp_z = v->matrix_vert[i][2];
         
         v->matrix_vert[i][0] = cos(angle) *temp_x - sin(angle) * temp_z;
         v->matrix_vert[i][2] = sin(angle) * temp_x + cos(angle) * temp_z;
+
     }
 }

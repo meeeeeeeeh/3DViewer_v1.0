@@ -21,6 +21,16 @@ int parser(const char *filename, vertex *v, polygon *p) {
     return err_flag;
 }
 
+int is_obj_file(const char *f) {
+   int err = 2;
+   int len = strlen(f);
+
+   if (f[len - 1] == 'j' && f[len - 2] == 'b' && f[len - 3] == 'o' && f[len - 4] == '.') {
+    err = 0;
+   }
+   return err;
+}
+
 char *get_file_name(const char *f) {
     char * res = NULL;
    char *fp = (char *)f;

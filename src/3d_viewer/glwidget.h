@@ -20,6 +20,8 @@ public:
     float x, y, z;
     bool wired;
 
+    int error;
+
 
     vertex vert_struct;
     polygon pol_struct;

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>921</width>
-    <height>735</height>
+    <width>1000</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,8 +18,8 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>800</width>
-    <height>600</height>
+    <width>1000</width>
+    <height>800</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -37,24 +37,28 @@
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_4">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="text">
-         <string>File name:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_file">
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="text">
+           <string>File name:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_file">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_7">
@@ -106,6 +110,73 @@
        </spacer>
       </item>
       <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Thickness:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Size:</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_10">
+        <item>
+         <widget class="QSpinBox" name="line_size"/>
+        </item>
+        <item>
+         <widget class="QSpinBox" name="dot_size"/>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Set color:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="color_back">
+        <property name="text">
+         <string>background</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QPushButton" name="color_vert">
+          <property name="text">
+           <string>vertices</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="color_lines">
+          <property name="text">
+           <string>edges</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="move">
+        <property name="text">
+         <string>Move</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -142,24 +213,35 @@
          </layout>
         </item>
         <item>
-         <widget class="QPushButton" name="move">
+         <widget class="QPushButton" name="rotate">
           <property name="text">
-           <string>Move</string>
+           <string>Rotate</string>
           </property>
          </widget>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <item>
-           <widget class="QDoubleSpinBox" name="R_X"/>
+           <widget class="QDoubleSpinBox" name="R_X">
+            <property name="maximum">
+             <double>360.990000000000009</double>
+            </property>
+           </widget>
           </item>
           <item>
-           <widget class="QDoubleSpinBox" name="R_Y"/>
+           <widget class="QDoubleSpinBox" name="R_Y">
+            <property name="maximum">
+             <double>360.990000000000009</double>
+            </property>
+           </widget>
           </item>
           <item>
            <widget class="QDoubleSpinBox" name="R_Z">
             <property name="minimum">
              <double>0.000000000000000</double>
+            </property>
+            <property name="maximum">
+             <double>360.990000000000009</double>
             </property>
             <property name="value">
              <double>0.000000000000000</double>
@@ -169,14 +251,14 @@
          </layout>
         </item>
         <item>
-         <widget class="QPushButton" name="rotate">
+         <widget class="QPushButton" name="resize">
           <property name="text">
-           <string>Rotate</string>
+           <string>Resize</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QSlider" name="horizontalSlider">
+         <widget class="QSlider" name="recize_val">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
             <horstretch>0</horstretch>
@@ -207,20 +289,38 @@
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="resize">
-          <property name="text">
-           <string>Resize</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="checkBox">
-          <property name="text">
-           <string>Wireframe</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_11">
+          <item>
+           <widget class="QPushButton" name="image">
+            <property name="text">
+             <string>image</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="gif">
+            <property name="text">
+             <string>gif</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="radioButton_bmp">
+        <property name="text">
+         <string>bmp</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="radioButton_jpeg">
+        <property name="text">
+         <string>jpeg</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="quit">
@@ -272,3 +372,4 @@
   </connection>
  </connections>
 </ui>
+

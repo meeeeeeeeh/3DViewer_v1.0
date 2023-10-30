@@ -94,7 +94,7 @@ void all_is_null(polygon *input_d, vertex *vert_d);
 /// \param center_x центр для оси х
 /// \param center_y центр для оси у
 /// \param center_z центр для оси z
-void centralize(vertex *v, double *center_x, double *center_y, double *center_z);
+void centralize(vertex *v);
 
 /// \brief уменьшает изображение 
 /// \param v указатель на структуру, описывающую вершины 
@@ -120,15 +120,15 @@ void rotation_y(vertex *v, double angle);
 /// \param v указатель на структуру, описывающую вершины 
 void fill_min_max(vertex *input_d);
 
-/// \brief отцентровывает и уменьшае изображение
-/// \param v указатель на структуру, описывающую вершины 
-void correct_image(vertex *v);
+///// \brief отцентровывает и уменьшае изображение
+///// \param v указатель на структуру, описывающую вершины
+//void correct_image(vertex *v);
 
 /// \brief двигает изображение
 /// \param v указатель на структуру, описывающую вершины 
 /// \param value на сколько необходимо подвинуть изображение
 /// \param coord название оси, по которой подвинуть
-void move(vertex *v, double value, char coord);
+void move_matrix(vertex *v, double value, char coord);
 
 /// \brief изменяет размер изображения
 /// \param v указатель на структуру, описывающую вершины 
@@ -136,6 +136,8 @@ void move(vertex *v, double value, char coord);
 void resize(vertex *v, double value);
 
 char *get_file_name(const char *f);
+
+int is_obj_file(const char *f);
 
 
 #endif  // INC_3D_VIEWER_PARSER_H

@@ -11,14 +11,15 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include "glwidget.h"
@@ -32,6 +33,7 @@ public:
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout_2;
     QPushButton *file_path;
+    QHBoxLayout *horizontalLayout_5;
     QLabel *label_4;
     QLabel *label_file;
     QHBoxLayout *horizontalLayout_7;
@@ -41,20 +43,35 @@ public:
     QLabel *label_2;
     QLabel *label_edges;
     QSpacerItem *verticalSpacer;
+    QHBoxLayout *horizontalLayout_6;
+    QLabel *label_5;
+    QLabel *label_6;
+    QHBoxLayout *horizontalLayout_10;
+    QSpinBox *line_size;
+    QSpinBox *dot_size;
+    QLabel *label_3;
+    QPushButton *color_back;
+    QHBoxLayout *horizontalLayout_3;
+    QPushButton *color_vert;
+    QPushButton *color_lines;
+    QPushButton *move;
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout_2;
     QDoubleSpinBox *X;
     QDoubleSpinBox *Y;
     QDoubleSpinBox *Z;
-    QPushButton *move;
+    QPushButton *rotate;
     QHBoxLayout *horizontalLayout_4;
     QDoubleSpinBox *R_X;
     QDoubleSpinBox *R_Y;
     QDoubleSpinBox *R_Z;
-    QPushButton *rotate;
-    QSlider *horizontalSlider;
     QPushButton *resize;
-    QCheckBox *checkBox;
+    QSlider *recize_val;
+    QHBoxLayout *horizontalLayout_11;
+    QPushButton *image;
+    QPushButton *gif;
+    QRadioButton *radioButton_bmp;
+    QRadioButton *radioButton_jpeg;
     QPushButton *quit;
     GLWidget *GLwidget;
 
@@ -62,13 +79,13 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(921, 735);
+        MainWindow->resize(1000, 800);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(MainWindow->sizePolicy().hasHeightForWidth());
         MainWindow->setSizePolicy(sizePolicy);
-        MainWindow->setMinimumSize(QSize(800, 600));
+        MainWindow->setMinimumSize(QSize(1000, 800));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         horizontalLayout = new QHBoxLayout(centralwidget);
@@ -80,6 +97,8 @@ public:
 
         verticalLayout_2->addWidget(file_path);
 
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         label_4 = new QLabel(centralwidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Preferred);
@@ -88,12 +107,15 @@ public:
         sizePolicy1.setHeightForWidth(label_4->sizePolicy().hasHeightForWidth());
         label_4->setSizePolicy(sizePolicy1);
 
-        verticalLayout_2->addWidget(label_4);
+        horizontalLayout_5->addWidget(label_4);
 
         label_file = new QLabel(centralwidget);
         label_file->setObjectName(QString::fromUtf8("label_file"));
 
-        verticalLayout_2->addWidget(label_file);
+        horizontalLayout_5->addWidget(label_file);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_5);
 
         horizontalLayout_7 = new QHBoxLayout();
         horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
@@ -129,6 +151,66 @@ public:
 
         verticalLayout_2->addItem(verticalSpacer);
 
+        horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
+        label_5 = new QLabel(centralwidget);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+
+        horizontalLayout_6->addWidget(label_5);
+
+        label_6 = new QLabel(centralwidget);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+
+        horizontalLayout_6->addWidget(label_6);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_6);
+
+        horizontalLayout_10 = new QHBoxLayout();
+        horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
+        line_size = new QSpinBox(centralwidget);
+        line_size->setObjectName(QString::fromUtf8("line_size"));
+
+        horizontalLayout_10->addWidget(line_size);
+
+        dot_size = new QSpinBox(centralwidget);
+        dot_size->setObjectName(QString::fromUtf8("dot_size"));
+
+        horizontalLayout_10->addWidget(dot_size);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_10);
+
+        label_3 = new QLabel(centralwidget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+
+        verticalLayout_2->addWidget(label_3);
+
+        color_back = new QPushButton(centralwidget);
+        color_back->setObjectName(QString::fromUtf8("color_back"));
+
+        verticalLayout_2->addWidget(color_back);
+
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        color_vert = new QPushButton(centralwidget);
+        color_vert->setObjectName(QString::fromUtf8("color_vert"));
+
+        horizontalLayout_3->addWidget(color_vert);
+
+        color_lines = new QPushButton(centralwidget);
+        color_lines->setObjectName(QString::fromUtf8("color_lines"));
+
+        horizontalLayout_3->addWidget(color_lines);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_3);
+
+        move = new QPushButton(centralwidget);
+        move->setObjectName(QString::fromUtf8("move"));
+
+        verticalLayout_2->addWidget(move);
+
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         horizontalLayout_2 = new QHBoxLayout();
@@ -160,26 +242,29 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_2);
 
-        move = new QPushButton(centralwidget);
-        move->setObjectName(QString::fromUtf8("move"));
+        rotate = new QPushButton(centralwidget);
+        rotate->setObjectName(QString::fromUtf8("rotate"));
 
-        verticalLayout->addWidget(move);
+        verticalLayout->addWidget(rotate);
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         R_X = new QDoubleSpinBox(centralwidget);
         R_X->setObjectName(QString::fromUtf8("R_X"));
+        R_X->setMaximum(360.990000000000009);
 
         horizontalLayout_4->addWidget(R_X);
 
         R_Y = new QDoubleSpinBox(centralwidget);
         R_Y->setObjectName(QString::fromUtf8("R_Y"));
+        R_Y->setMaximum(360.990000000000009);
 
         horizontalLayout_4->addWidget(R_Y);
 
         R_Z = new QDoubleSpinBox(centralwidget);
         R_Z->setObjectName(QString::fromUtf8("R_Z"));
         R_Z->setMinimum(0.000000000000000);
+        R_Z->setMaximum(360.990000000000009);
         R_Z->setValue(0.000000000000000);
 
         horizontalLayout_4->addWidget(R_Z);
@@ -187,37 +272,52 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_4);
 
-        rotate = new QPushButton(centralwidget);
-        rotate->setObjectName(QString::fromUtf8("rotate"));
-
-        verticalLayout->addWidget(rotate);
-
-        horizontalSlider = new QSlider(centralwidget);
-        horizontalSlider->setObjectName(QString::fromUtf8("horizontalSlider"));
-        sizePolicy2.setHeightForWidth(horizontalSlider->sizePolicy().hasHeightForWidth());
-        horizontalSlider->setSizePolicy(sizePolicy2);
-        horizontalSlider->setMinimum(-5);
-        horizontalSlider->setMaximum(5);
-        horizontalSlider->setSingleStep(1);
-        horizontalSlider->setPageStep(10);
-        horizontalSlider->setValue(0);
-        horizontalSlider->setSliderPosition(0);
-        horizontalSlider->setOrientation(Qt::Horizontal);
-
-        verticalLayout->addWidget(horizontalSlider);
-
         resize = new QPushButton(centralwidget);
         resize->setObjectName(QString::fromUtf8("resize"));
 
         verticalLayout->addWidget(resize);
 
-        checkBox = new QCheckBox(centralwidget);
-        checkBox->setObjectName(QString::fromUtf8("checkBox"));
+        recize_val = new QSlider(centralwidget);
+        recize_val->setObjectName(QString::fromUtf8("recize_val"));
+        sizePolicy2.setHeightForWidth(recize_val->sizePolicy().hasHeightForWidth());
+        recize_val->setSizePolicy(sizePolicy2);
+        recize_val->setMinimum(-5);
+        recize_val->setMaximum(5);
+        recize_val->setSingleStep(1);
+        recize_val->setPageStep(10);
+        recize_val->setValue(0);
+        recize_val->setSliderPosition(0);
+        recize_val->setOrientation(Qt::Horizontal);
 
-        verticalLayout->addWidget(checkBox);
+        verticalLayout->addWidget(recize_val);
+
+        horizontalLayout_11 = new QHBoxLayout();
+        horizontalLayout_11->setObjectName(QString::fromUtf8("horizontalLayout_11"));
+        image = new QPushButton(centralwidget);
+        image->setObjectName(QString::fromUtf8("image"));
+
+        horizontalLayout_11->addWidget(image);
+
+        gif = new QPushButton(centralwidget);
+        gif->setObjectName(QString::fromUtf8("gif"));
+
+        horizontalLayout_11->addWidget(gif);
+
+
+        verticalLayout->addLayout(horizontalLayout_11);
 
 
         verticalLayout_2->addLayout(verticalLayout);
+
+        radioButton_bmp = new QRadioButton(centralwidget);
+        radioButton_bmp->setObjectName(QString::fromUtf8("radioButton_bmp"));
+
+        verticalLayout_2->addWidget(radioButton_bmp);
+
+        radioButton_jpeg = new QRadioButton(centralwidget);
+        radioButton_jpeg->setObjectName(QString::fromUtf8("radioButton_jpeg"));
+
+        verticalLayout_2->addWidget(radioButton_jpeg);
 
         quit = new QPushButton(centralwidget);
         quit->setObjectName(QString::fromUtf8("quit"));
@@ -255,10 +355,19 @@ public:
         label_vert->setText(QString());
         label_2->setText(QCoreApplication::translate("MainWindow", "Edges:", nullptr));
         label_edges->setText(QString());
+        label_5->setText(QCoreApplication::translate("MainWindow", "Thickness:", nullptr));
+        label_6->setText(QCoreApplication::translate("MainWindow", "Size:", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "Set color:", nullptr));
+        color_back->setText(QCoreApplication::translate("MainWindow", "background", nullptr));
+        color_vert->setText(QCoreApplication::translate("MainWindow", "vertices", nullptr));
+        color_lines->setText(QCoreApplication::translate("MainWindow", "edges", nullptr));
         move->setText(QCoreApplication::translate("MainWindow", "Move", nullptr));
         rotate->setText(QCoreApplication::translate("MainWindow", "Rotate", nullptr));
         resize->setText(QCoreApplication::translate("MainWindow", "Resize", nullptr));
-        checkBox->setText(QCoreApplication::translate("MainWindow", "Wireframe", nullptr));
+        image->setText(QCoreApplication::translate("MainWindow", "image", nullptr));
+        gif->setText(QCoreApplication::translate("MainWindow", "gif", nullptr));
+        radioButton_bmp->setText(QCoreApplication::translate("MainWindow", "bmp", nullptr));
+        radioButton_jpeg->setText(QCoreApplication::translate("MainWindow", "jpeg", nullptr));
         quit->setText(QCoreApplication::translate("MainWindow", "Quit", nullptr));
     } // retranslateUi
 
