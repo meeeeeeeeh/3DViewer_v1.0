@@ -130,9 +130,9 @@ void MainWindow::on_resize_clicked()
         }
 
         resize_matrix(&(ui->GLwidget->vert_struct), val);
+        ui->GLwidget->update();
     }
 
-    qDebug() << val;
 }
 
 
