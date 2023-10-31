@@ -7,6 +7,8 @@ GLWidget::GLWidget(QWidget *parent) :
 {
     this->R = 1;
     this->wired = false;
+    this->v_color_ = QColor(0, 1, 0, 1);
+    this->l_color_ = QColor(1, 0, 0, 1);
 
 }
 
@@ -25,7 +27,7 @@ void GLWidget::paintGL()
         glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glMatrixMode(GL_MODELVIEW);
         glLoadIdentity();
-        glColor3f(1, 0, 0);
+        glColor3d(1, 0, 0);
 
 
 

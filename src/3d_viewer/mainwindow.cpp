@@ -145,19 +145,3 @@ void MainWindow::on_color_vert_clicked()
     }
 }
 
-
-//void MainWindow::on_color_lines_clicked()
-//{
-//    QColorDialog colorDialog(this);
-//    auto new_color = colorDialog.getColor(Qt::white, this);
-//    if (new_color.isValid()) {
-//        ui->GLwidget->change_line_color(new_color);
-//    }
-//}
-
-
-//void MainWindow::on_color_back_clicked()
-//{
-
-//}
-
