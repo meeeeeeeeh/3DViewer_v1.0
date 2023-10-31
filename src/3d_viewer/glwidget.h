@@ -19,14 +19,20 @@ public:
     void change_line_color(QColor c);
     void change_back_color(QColor c);
 
+    void change_size_vert(int size_v);
+    void change_size_line(int size_l);
+
     int R;
     float x, y, z;
     bool wired;
     int error;
     QColor v_color_;
     QColor l_color_;
+
     //QColor b_color_;
 
+    int size_v_;
+    int size_l_;
     vertex vert_struct;
     polygon pol_struct;
 };

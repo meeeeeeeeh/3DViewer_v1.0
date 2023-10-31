@@ -9,6 +9,8 @@ GLWidget::GLWidget(QWidget *parent) :
     this->wired = false;
     this->v_color_ = QColor(0, 1, 0, 1);
     this->l_color_ = QColor(1, 0, 0, 1);
+    this->size_v_= 5;
+    this->size_l_ = 1;
 
 }
 
@@ -33,8 +35,9 @@ void GLWidget::paintGL()
 
 
 
-        glPointSize(5);
-        //glLineWidth(10);
+        glPointSize(size_v_);
+
+        glLineWidth(size_l_);
 
        //glColor3d(v_color_.redF(), v_color_.greenF(), v_color_.blueF());
 
@@ -89,3 +92,13 @@ void GLWidget::change_vert_color(QColor c) {
 //    l_color_ = c;
 //    update();
 //}
+
+void GLWidget::change_size_vert(int size_v) {
+    size_v_ = size_v;
+    update();
+}
+
+void GLWidget::change_size_line(int size_l) {
+    size_l_ = size_l;
+    update();
+}

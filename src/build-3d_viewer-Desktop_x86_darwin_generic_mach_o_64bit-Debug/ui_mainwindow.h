@@ -42,11 +42,16 @@ public:
     QHBoxLayout *horizontalLayout_8;
     QLabel *label_2;
     QLabel *label_edges;
+    QSpacerItem *verticalSpacer_5;
+    QLabel *label_10;
+    QHBoxLayout *horizontalLayout_12;
+    QRadioButton *radioButton_7;
+    QRadioButton *radioButton_6;
     QSpacerItem *verticalSpacer;
     QLabel *label_7;
     QHBoxLayout *horizontalLayout_6;
     QLabel *label_6;
-    QSpinBox *dot_size;
+    QSpinBox *spinBox;
     QLabel *label_3;
     QHBoxLayout *horizontalLayout_10;
     QRadioButton *radioButton_3;
@@ -159,6 +164,30 @@ public:
 
         verticalLayout_2->addLayout(horizontalLayout_8);
 
+        verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer_5);
+
+        label_10 = new QLabel(centralwidget);
+        label_10->setObjectName(QString::fromUtf8("label_10"));
+
+        verticalLayout_2->addWidget(label_10);
+
+        horizontalLayout_12 = new QHBoxLayout();
+        horizontalLayout_12->setObjectName(QString::fromUtf8("horizontalLayout_12"));
+        radioButton_7 = new QRadioButton(centralwidget);
+        radioButton_7->setObjectName(QString::fromUtf8("radioButton_7"));
+
+        horizontalLayout_12->addWidget(radioButton_7);
+
+        radioButton_6 = new QRadioButton(centralwidget);
+        radioButton_6->setObjectName(QString::fromUtf8("radioButton_6"));
+
+        horizontalLayout_12->addWidget(radioButton_6);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_12);
+
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         verticalLayout_2->addItem(verticalSpacer);
@@ -175,10 +204,11 @@ public:
 
         horizontalLayout_6->addWidget(label_6);
 
-        dot_size = new QSpinBox(centralwidget);
-        dot_size->setObjectName(QString::fromUtf8("dot_size"));
+        spinBox = new QSpinBox(centralwidget);
+        spinBox->setObjectName(QString::fromUtf8("spinBox"));
+        spinBox->setMaximum(20);
 
-        horizontalLayout_6->addWidget(dot_size);
+        horizontalLayout_6->addWidget(spinBox);
 
 
         verticalLayout_2->addLayout(horizontalLayout_6);
@@ -231,6 +261,7 @@ public:
 
         line_size = new QSpinBox(centralwidget);
         line_size->setObjectName(QString::fromUtf8("line_size"));
+        line_size->setMaximum(20);
 
         horizontalLayout_3->addWidget(line_size);
 
@@ -424,6 +455,9 @@ public:
         label_vert->setText(QString());
         label_2->setText(QCoreApplication::translate("MainWindow", "Edges:", nullptr));
         label_edges->setText(QString());
+        label_10->setText(QCoreApplication::translate("MainWindow", "Type of projection:", nullptr));
+        radioButton_7->setText(QCoreApplication::translate("MainWindow", "parallel", nullptr));
+        radioButton_6->setText(QCoreApplication::translate("MainWindow", "central", nullptr));
         label_7->setText(QCoreApplication::translate("MainWindow", "Customize vertices:", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "Size:", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Display method:", nullptr));

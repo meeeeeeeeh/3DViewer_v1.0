@@ -164,7 +164,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="dot_size"/>
+         <widget class="QSpinBox" name="spinBox">
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>
@@ -237,7 +241,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QSpinBox" name="line_size"/>
+         <widget class="QSpinBox" name="line_size">
+          <property name="maximum">
+           <number>20</number>
+          </property>
+         </widget>
         </item>
        </layout>
       </item>

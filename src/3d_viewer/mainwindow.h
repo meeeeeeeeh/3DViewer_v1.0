@@ -46,6 +46,10 @@ private slots:
 
     //void on_color_back_clicked();
 
+    void on_spinBox_valueChanged(int arg1);
+
+    void on_line_size_valueChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
 };

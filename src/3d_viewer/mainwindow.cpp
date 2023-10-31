@@ -145,3 +145,15 @@ void MainWindow::on_color_vert_clicked()
     }
 }
 
+
+void MainWindow::on_spinBox_valueChanged(int arg1)
+{
+    ui->GLwidget->change_size_vert(arg1);
+}
+
+
+void MainWindow::on_line_size_valueChanged(int arg1)
+{
+    ui->GLwidget->change_size_line(arg1);
+}
+
