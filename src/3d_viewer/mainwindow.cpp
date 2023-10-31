@@ -180,3 +180,17 @@ void MainWindow::on_dot_round_clicked()
     ui->GLwidget->update();
 }
 
+
+void MainWindow::on_line_dashed_clicked()
+{
+    ui->GLwidget->l_d = true;
+    ui->GLwidget->update();
+}
+
+
+void MainWindow::on_line_solid_clicked()
+{
+    ui->GLwidget->l_s = true;
+    ui->GLwidget->update();
+}
+

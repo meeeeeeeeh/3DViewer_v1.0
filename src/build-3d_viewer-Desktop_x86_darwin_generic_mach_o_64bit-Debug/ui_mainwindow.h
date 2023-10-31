@@ -65,8 +65,8 @@ public:
     QSpinBox *line_size;
     QLabel *label_9;
     QHBoxLayout *horizontalLayout_9;
-    QRadioButton *radioButton_5;
-    QRadioButton *radioButton_4;
+    QRadioButton *line_solid;
+    QRadioButton *line_dashed;
     QPushButton *color_lines;
     QSpacerItem *verticalSpacer_3;
     QPushButton *move;
@@ -275,15 +275,15 @@ public:
 
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
-        radioButton_5 = new QRadioButton(centralwidget);
-        radioButton_5->setObjectName(QString::fromUtf8("radioButton_5"));
+        line_solid = new QRadioButton(centralwidget);
+        line_solid->setObjectName(QString::fromUtf8("line_solid"));
 
-        horizontalLayout_9->addWidget(radioButton_5);
+        horizontalLayout_9->addWidget(line_solid);
 
-        radioButton_4 = new QRadioButton(centralwidget);
-        radioButton_4->setObjectName(QString::fromUtf8("radioButton_4"));
+        line_dashed = new QRadioButton(centralwidget);
+        line_dashed->setObjectName(QString::fromUtf8("line_dashed"));
 
-        horizontalLayout_9->addWidget(radioButton_4);
+        horizontalLayout_9->addWidget(line_dashed);
 
 
         verticalLayout_2->addLayout(horizontalLayout_9);
@@ -468,8 +468,8 @@ public:
         label_8->setText(QCoreApplication::translate("MainWindow", "Customize edges:", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindow", "Thickness:", nullptr));
         label_9->setText(QCoreApplication::translate("MainWindow", "Type:", nullptr));
-        radioButton_5->setText(QCoreApplication::translate("MainWindow", "solid", nullptr));
-        radioButton_4->setText(QCoreApplication::translate("MainWindow", "dashed", nullptr));
+        line_solid->setText(QCoreApplication::translate("MainWindow", "solid", nullptr));
+        line_dashed->setText(QCoreApplication::translate("MainWindow", "dashed", nullptr));
         color_lines->setText(QCoreApplication::translate("MainWindow", "color", nullptr));
         move->setText(QCoreApplication::translate("MainWindow", "Move", nullptr));
         rotate->setText(QCoreApplication::translate("MainWindow", "Rotate", nullptr));

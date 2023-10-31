@@ -56,6 +56,10 @@ private slots:
 
     void on_dot_round_clicked();
 
+    void on_line_dashed_clicked();
+
+    void on_line_solid_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

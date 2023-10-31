@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
-    const uint offsetsAndSize[32];
-    char stringdata0[258];
+    const uint offsetsAndSize[36];
+    char stringdata0[303];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs), len 
@@ -44,7 +44,9 @@ QT_MOC_LITERAL(164, 4), // "arg1"
 QT_MOC_LITERAL(169, 25), // "on_line_size_valueChanged"
 QT_MOC_LITERAL(195, 19), // "on_dot_none_clicked"
 QT_MOC_LITERAL(215, 21), // "on_dot_square_clicked"
-QT_MOC_LITERAL(237, 20) // "on_dot_round_clicked"
+QT_MOC_LITERAL(237, 20), // "on_dot_round_clicked"
+QT_MOC_LITERAL(258, 22), // "on_line_dashed_clicked"
+QT_MOC_LITERAL(281, 21) // "on_line_solid_clicked"
 
     },
     "MainWindow\0on_file_path_clicked\0\0"
@@ -53,7 +55,8 @@ QT_MOC_LITERAL(237, 20) // "on_dot_round_clicked"
     "on_resize_clicked\0on_color_vert_clicked\0"
     "on_spinBox_valueChanged\0arg1\0"
     "on_line_size_valueChanged\0on_dot_none_clicked\0"
-    "on_dot_square_clicked\0on_dot_round_clicked"
+    "on_dot_square_clicked\0on_dot_round_clicked\0"
+    "on_line_dashed_clicked\0on_line_solid_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -63,7 +66,7 @@ static const uint qt_meta_data_MainWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      13,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -71,17 +74,19 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   80,    2, 0x08,    1 /* Private */,
-       3,    0,   81,    2, 0x08,    2 /* Private */,
-       4,    0,   82,    2, 0x08,    3 /* Private */,
-       5,    1,   83,    2, 0x08,    4 /* Private */,
-       8,    0,   86,    2, 0x08,    6 /* Private */,
-       9,    0,   87,    2, 0x08,    7 /* Private */,
-      10,    1,   88,    2, 0x08,    8 /* Private */,
-      12,    1,   91,    2, 0x08,   10 /* Private */,
-      13,    0,   94,    2, 0x08,   12 /* Private */,
-      14,    0,   95,    2, 0x08,   13 /* Private */,
-      15,    0,   96,    2, 0x08,   14 /* Private */,
+       1,    0,   92,    2, 0x08,    1 /* Private */,
+       3,    0,   93,    2, 0x08,    2 /* Private */,
+       4,    0,   94,    2, 0x08,    3 /* Private */,
+       5,    1,   95,    2, 0x08,    4 /* Private */,
+       8,    0,   98,    2, 0x08,    6 /* Private */,
+       9,    0,   99,    2, 0x08,    7 /* Private */,
+      10,    1,  100,    2, 0x08,    8 /* Private */,
+      12,    1,  103,    2, 0x08,   10 /* Private */,
+      13,    0,  106,    2, 0x08,   12 /* Private */,
+      14,    0,  107,    2, 0x08,   13 /* Private */,
+      15,    0,  108,    2, 0x08,   14 /* Private */,
+      16,    0,  109,    2, 0x08,   15 /* Private */,
+      17,    0,  110,    2, 0x08,   16 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -92,6 +97,8 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,   11,
     QMetaType::Void, QMetaType::Int,   11,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -116,6 +123,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 8: _t->on_dot_none_clicked(); break;
         case 9: _t->on_dot_square_clicked(); break;
         case 10: _t->on_dot_round_clicked(); break;
+        case 11: _t->on_line_dashed_clicked(); break;
+        case 12: _t->on_line_solid_clicked(); break;
         default: ;
         }
     }
@@ -129,7 +138,7 @@ const QMetaObject MainWindow::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_MainWindow_t
 , QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const char *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const char *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,
@@ -156,13 +165,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 13)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 11;
+        _id -= 13;
     }
     return _id;
 }

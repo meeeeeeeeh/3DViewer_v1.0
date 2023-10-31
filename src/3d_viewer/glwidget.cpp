@@ -14,6 +14,8 @@ GLWidget::GLWidget(QWidget *parent) :
     this->d_n = false;
     this->d_s = false;
     this->d_r = false;
+    this->l_s = false;
+    this->l_d = false;
 
 }
 
@@ -43,8 +45,13 @@ void GLWidget::paintGL()
         glLineWidth(size_l_);
 
        //glColor3d(v_color_.redF(), v_color_.greenF(), v_color_.blueF());
+       if (l_d) {
+           glEnable(GL_LINE_STIPPLE);
+           glLineStipple(1,5);
+       }
+       if (l_s) glDisable(GL_LINE_STIPPLE);
 
-       glBegin(GL_LINES);
+        glBegin(GL_LINES);
         for (unsigned long int i = 0; i < pol_struct.amount_pol; i++) {
             for (int j = 0; j < pol_struct.amount_pol_on_string[i]; j++) {
 
@@ -61,6 +68,8 @@ void GLWidget::paintGL()
 
             }
         }
+        if(l_s) l_s = false;
+        if(l_d) l_d = false;
         glEnd();
 
 
