@@ -54,9 +54,9 @@ public:
     QSpinBox *spinBox;
     QLabel *label_3;
     QHBoxLayout *horizontalLayout_10;
-    QRadioButton *radioButton_3;
-    QRadioButton *radioButton_2;
-    QRadioButton *radioButton;
+    QRadioButton *dot_none;
+    QRadioButton *dot_square;
+    QRadioButton *dot_round;
     QPushButton *color_vert;
     QSpacerItem *verticalSpacer_2;
     QLabel *label_8;
@@ -220,20 +220,20 @@ public:
 
         horizontalLayout_10 = new QHBoxLayout();
         horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
-        radioButton_3 = new QRadioButton(centralwidget);
-        radioButton_3->setObjectName(QString::fromUtf8("radioButton_3"));
+        dot_none = new QRadioButton(centralwidget);
+        dot_none->setObjectName(QString::fromUtf8("dot_none"));
 
-        horizontalLayout_10->addWidget(radioButton_3);
+        horizontalLayout_10->addWidget(dot_none);
 
-        radioButton_2 = new QRadioButton(centralwidget);
-        radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
+        dot_square = new QRadioButton(centralwidget);
+        dot_square->setObjectName(QString::fromUtf8("dot_square"));
 
-        horizontalLayout_10->addWidget(radioButton_2);
+        horizontalLayout_10->addWidget(dot_square);
 
-        radioButton = new QRadioButton(centralwidget);
-        radioButton->setObjectName(QString::fromUtf8("radioButton"));
+        dot_round = new QRadioButton(centralwidget);
+        dot_round->setObjectName(QString::fromUtf8("dot_round"));
 
-        horizontalLayout_10->addWidget(radioButton);
+        horizontalLayout_10->addWidget(dot_round);
 
 
         verticalLayout_2->addLayout(horizontalLayout_10);
@@ -461,9 +461,9 @@ public:
         label_7->setText(QCoreApplication::translate("MainWindow", "Customize vertices:", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "Size:", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Display method:", nullptr));
-        radioButton_3->setText(QCoreApplication::translate("MainWindow", "none", nullptr));
-        radioButton_2->setText(QCoreApplication::translate("MainWindow", "square", nullptr));
-        radioButton->setText(QCoreApplication::translate("MainWindow", "round", nullptr));
+        dot_none->setText(QCoreApplication::translate("MainWindow", "none", nullptr));
+        dot_square->setText(QCoreApplication::translate("MainWindow", "square", nullptr));
+        dot_round->setText(QCoreApplication::translate("MainWindow", "round", nullptr));
         color_vert->setText(QCoreApplication::translate("MainWindow", "color", nullptr));
         label_8->setText(QCoreApplication::translate("MainWindow", "Customize edges:", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindow", "Thickness:", nullptr));

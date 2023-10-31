@@ -26,6 +26,9 @@ public:
     float x, y, z;
     bool wired;
     int error;
+    bool d_n;
+    bool d_s;
+    bool d_r;
     QColor v_color_;
     QColor l_color_;
 

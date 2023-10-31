@@ -50,6 +50,12 @@ private slots:
 
     void on_line_size_valueChanged(int arg1);
 
+    void on_dot_none_clicked();
+
+    void on_dot_square_clicked();
+
+    void on_dot_round_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

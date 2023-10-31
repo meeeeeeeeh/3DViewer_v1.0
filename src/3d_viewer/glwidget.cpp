@@ -7,10 +7,13 @@ GLWidget::GLWidget(QWidget *parent) :
 {
     this->R = 1;
     this->wired = false;
-    this->v_color_ = QColor(0, 1, 0, 1);
+    this->v_color_ = QColor(1, 0, 0, 1);
     this->l_color_ = QColor(1, 0, 0, 1);
-    this->size_v_= 5;
+    this->size_v_= 1;
     this->size_l_ = 1;
+    this->d_n = false;
+    this->d_s = false;
+    this->d_r = false;
 
 }
 
@@ -61,15 +64,26 @@ void GLWidget::paintGL()
         glEnd();
 
 
-        glColor3d(v_color_.redF(), v_color_.greenF(), v_color_.blueF());
+        if (!d_n) {
+            glColor3d(v_color_.redF(), v_color_.greenF(), v_color_.blueF());
+            if(d_r) glEnable(GL_POINT_SMOOTH);
+            if (d_s) glDisable(GL_POINT_SMOOTH);
+
+            glBegin(GL_POINTS);
+            for (unsigned long int i = 0; i < vert_struct.amount_vert; i++) {
+                glEnable(GL_BLEND);
 
 
-        glBegin(GL_POINTS);
-        for (unsigned long int i = 0; i < vert_struct.amount_vert; i++) {
-            glEnable(GL_BLEND);
-            glVertex3d(vert_struct.matrix_vert[i][0], vert_struct.matrix_vert[i][1], vert_struct.matrix_vert[i][2]);
+                glVertex3d(vert_struct.matrix_vert[i][0], vert_struct.matrix_vert[i][1], vert_struct.matrix_vert[i][2]);
+            }
+            glEnd();
         }
-        glEnd();
+
+
+        if(d_n) d_n = false;
+        if(d_s) d_s = false;
+        if(d_r) d_r = false;
+
     }
 
 

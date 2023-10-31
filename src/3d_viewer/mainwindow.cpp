@@ -157,3 +157,26 @@ void MainWindow::on_line_size_valueChanged(int arg1)
     ui->GLwidget->change_size_line(arg1);
 }
 
+
+void MainWindow::on_dot_none_clicked()
+{
+    ui->GLwidget->d_n = true;
+    ui->GLwidget->update();
+     //ui->GLwidget->d_n = false;
+
+}
+
+
+void MainWindow::on_dot_square_clicked()
+{
+    ui->GLwidget->d_s = true;
+    ui->GLwidget->update();
+}
+
+
+void MainWindow::on_dot_round_clicked()
+{
+    ui->GLwidget->d_r = true;
+    ui->GLwidget->update();
+}
+
