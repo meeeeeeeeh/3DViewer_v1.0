@@ -38,6 +38,14 @@ private slots:
     void file_output(const char * path_str);
 
 
+    void on_resize_clicked();
+
+    void on_color_vert_clicked();
+
+    //void on_color_lines_clicked();
+
+    //void on_color_back_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

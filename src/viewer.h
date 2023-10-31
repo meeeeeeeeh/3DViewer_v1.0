@@ -133,7 +133,7 @@ void move_matrix(vertex *v, double value, char coord);
 /// \brief изменяет размер изображения
 /// \param v указатель на структуру, описывающую вершины 
 /// \param value во сколько раз необходимо изменить изображение
-void resize(vertex *v, double value);
+void resize_matrix(vertex *v, double value);
 
 char *get_file_name(const char *f);
 

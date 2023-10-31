@@ -53,7 +53,7 @@ void decrease(vertex *v, double value) {
     if (max < dif_z) max = dif_z;   
 
     double k = (value - (value * (-1))) / max;
-    resize(v, k);
+    resize_matrix(v, k);
 }
 
 //// уменьшает и централрует изначальное изображение, запускается вначале работы
@@ -80,7 +80,7 @@ void move_matrix(vertex *v, double value, char coord) {
     }
 }
 
-void resize(vertex *v, double value) {
+void resize_matrix(vertex *v, double value) {
     for (long unsigned int i = 0; i < v->amount_vert; i++) {
         for (int j = 0; j < 3; j++) {
             v->matrix_vert[i][j] *= value;

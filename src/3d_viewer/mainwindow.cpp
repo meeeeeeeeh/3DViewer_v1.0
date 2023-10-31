@@ -3,6 +3,7 @@
 #include "glwidget.h"
 #include "../viewer.h"
 #include <QFileDialog>
+#include <QColorDialog>
 
 #include <QDebug>
 
@@ -32,13 +33,14 @@ void MainWindow::on_file_path_clicked()
 
     file_output(path_str);
 
-    fill_min_max(&(ui->GLwidget->vert_struct));
-    decrease(&(ui->GLwidget->vert_struct), 0.5);
-    centralize(&(ui->GLwidget->vert_struct)); //incorrect image with skulll and cub_r
+    if (!ui->GLwidget->error) {
+        fill_min_max(&(ui->GLwidget->vert_struct));
+        decrease(&(ui->GLwidget->vert_struct), 0.5);
+        centralize(&(ui->GLwidget->vert_struct)); //incorrect image with skulll and cub_r
+    }
 
-    //qDebug() << is_obj_file(path_str);
 
-    qDebug() << ui->recize_val->value();
+    qDebug() << ui->GLwidget->error;
 
 }
 
@@ -115,4 +117,47 @@ void MainWindow::on_rotate_clicked()
         ui->GLwidget->update();
     }
 }
+
+
+void MainWindow::on_resize_clicked()
+{
+    double val = (double)ui->recize_val->value();
+    if (val != 0) {
+
+        if (val > 0) val = (val + 1) / 1.5;
+        if(val < 0) {
+            val = (10 + val) / 10;
+        }
+
+        resize_matrix(&(ui->GLwidget->vert_struct), val);
+    }
+
+    qDebug() << val;
+}
+
+
+void MainWindow::on_color_vert_clicked()
+{
+    QColorDialog colorDialog(this);
+    auto new_color = colorDialog.getColor(Qt::white, this);
+    if (new_color.isValid()) {
+        ui->GLwidget->change_vert_color(new_color);
+    }
+}
+
+
+//void MainWindow::on_color_lines_clicked()
+//{
+//    QColorDialog colorDialog(this);
+//    auto new_color = colorDialog.getColor(Qt::white, this);
+//    if (new_color.isValid()) {
+//        ui->GLwidget->change_line_color(new_color);
+//    }
+//}
+
+
+//void MainWindow::on_color_back_clicked()
+//{
+
+//}
 

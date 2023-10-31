@@ -31,8 +31,10 @@ void GLWidget::paintGL()
 
 
 
-        glPointSize(0.1);
+        glPointSize(5);
         //glLineWidth(10);
+
+       //glColor3d(v_color_.redF(), v_color_.greenF(), v_color_.blueF());
 
        glBegin(GL_LINES);
         for (unsigned long int i = 0; i < pol_struct.amount_pol; i++) {
@@ -54,6 +56,9 @@ void GLWidget::paintGL()
         glEnd();
 
 
+        glColor3d(v_color_.redF(), v_color_.greenF(), v_color_.blueF());
+
+
         glBegin(GL_POINTS);
         for (unsigned long int i = 0; i < vert_struct.amount_vert; i++) {
             glEnable(GL_BLEND);
@@ -72,3 +77,13 @@ void GLWidget::resizeGL(int w, int h)
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
 }
+
+void GLWidget::change_vert_color(QColor c) {
+    v_color_ = c;
+    update();
+}
+
+//void GLWidget::change_line_color(QColor c) {
+//    l_color_ = c;
+//    update();
+//}
