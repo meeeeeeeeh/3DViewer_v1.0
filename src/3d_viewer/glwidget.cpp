@@ -37,12 +37,10 @@ void GLWidget::paintGL()
         if(p_proj) {
            glOrtho(-1, 1, -1, 1, -1, 99999);
            glTranslated(0,0,0);
-           p_proj = false;
         }
         if(c_proj) {
             glFrustum(-1, 1, -1, 1, 1, 99999);
             glTranslated(0,0,-1.5);
-            c_proj = false;
         }
 
         glClearColor(b_color_.redF(), b_color_.greenF(), b_color_.blueF(), b_color_.alphaF());

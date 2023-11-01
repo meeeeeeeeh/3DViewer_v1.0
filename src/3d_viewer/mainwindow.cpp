@@ -222,6 +222,7 @@ void MainWindow::on_color_back_clicked()
 void MainWindow::on_parallel_clicked()
 {
     ui->GLwidget->p_proj = true;
+    ui->GLwidget->c_proj = false;
     ui->GLwidget->update();
 }
 
@@ -229,6 +230,7 @@ void MainWindow::on_parallel_clicked()
 void MainWindow::on_central_clicked()
 {
     ui->GLwidget->c_proj = true;
+    ui->GLwidget->p_proj = false;
     ui->GLwidget->update();
 
     qDebug() << ui->GLwidget->c_proj;
