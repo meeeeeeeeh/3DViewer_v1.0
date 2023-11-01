@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGC =  -Wall -Werror -Wextra -fsanitize=address -g -lcheck -pthread -lm
+CFLAGC =  -Wall -Werror -Wextra -lcheck -lm
 SOURCES = viewer.c
 OBJECTS = viewer.o
 
@@ -18,9 +18,9 @@ gcov_report:
 	open ./report/index.html
 
 install:
-	make clean
-	mkdir build
-	cd build && qmake 3d_viewer.app && make
+	@make clean
+	@mkdir build
+	@cd build && qmake ../3d_viewer/3d_viewer.pro && make
 
 uninstall:
 	rm -rf build
