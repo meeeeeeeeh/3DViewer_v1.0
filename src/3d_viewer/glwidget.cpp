@@ -35,11 +35,13 @@ void GLWidget::paintGL()
         glLoadIdentity();
 
         if(p_proj) {
-           glOrtho(-0.5, 0.5, -0.5, 0.5, 1, 1);
+           glOrtho(-1, 1, -1, 1, -1, 99999);
+           glTranslated(0,0,0);
            p_proj = false;
         }
         if(c_proj) {
-            glFrustum(-0.5, 0.5, -0.5, 0.5, 0, 10);
+            glFrustum(-1, 1, -1, 1, 1, 99999);
+            glTranslated(0,0,-1.5);
             c_proj = false;
         }
 

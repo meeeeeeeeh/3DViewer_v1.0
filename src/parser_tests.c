@@ -67,6 +67,7 @@ START_TEST(s21_test_2) {
   free(data);
   free(pol);
   remove_matrix(&p, &v);
+  
 }
 END_TEST
 
