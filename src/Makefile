@@ -34,7 +34,7 @@ dist:
 	rm -rf Archive_3DWieve_1.0/
 	mkdir Archive_3DWieve_1.0/
 	mkdir Archive_3DWieve_1.0/src
-	mv ./build/3DWieve.app Archive_3DWieve_1.0/src/
+	mv build/3d_viewer.app Archive_3DWieve_1.0/src/
 	tar cvzf Archive_3DWieve_1.0.tgz Archive_3DWieve_1.0/
 	rm -rf Archive_3DWieve_1.0/
 
