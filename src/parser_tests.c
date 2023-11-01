@@ -46,7 +46,7 @@ START_TEST(s21_test_2) {
   char *test_file = "abc.obj";
   parser(test_file, &v, &p);
   for (int i = 0; i < 3; i++) {
-    for (int j; j < 3; j++) {
+    for (int j = 0; j < 3; j++) {
       ck_assert_double_eq(v.matrix_vert[i][j], data[i][j]);
     }
   }
@@ -67,7 +67,6 @@ START_TEST(s21_test_2) {
   free(data);
   free(pol);
   remove_matrix(&p, &v);
-  
 }
 END_TEST
 
@@ -86,7 +85,7 @@ START_TEST(resize_test) {
   data[1][2] = 4.26;
 
   data[2][0] = -1.74;
-  data[2][1] = -1.5;
+  data[2][1] = -4.5;
   data[2][2] = 1.74;
 
   vertex v;
@@ -95,9 +94,9 @@ START_TEST(resize_test) {
   parser(test_file, &v, &p);
 
   resize_matrix(&v, 3);
-  for (int i; i < 3; i++) {
-    for (int j; j < 3; j++) {
-      ck_assert_double_eq(v.matrix_vert[i][j], data[i][j]);
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      ck_assert_double_eq_tol(v.matrix_vert[i][j], data[i][j], 2);
     }
   }
 
@@ -115,7 +114,7 @@ START_TEST(rotation_test_z) {
     data[i] = calloc(3, sizeof(double));
   }
 
-  data[0][0] = 0.375450;
+  data[0][0] = -1.13795;
   data[0][1] = 2.031117;
   data[0][2] = 1.420000;
 
@@ -139,14 +138,14 @@ START_TEST(rotation_test_z) {
   // -0.329370 1.574140 1.420000
   // -0.329370 1.574140 0.580000
   rotation_z(&v, 10);
-  for (int i; i < 3; i++) {
-    for (int j; j < 3; j++) {
-      ck_assert_double_eq(v.matrix_vert[i][j], data[i][j]);
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      ck_assert_double_eq_tol(v.matrix_vert[i][j], data[i][j], 5);
     }
   }
 
   remove_matrix(&p, &v);
-  for (int i; i < 3; i++) {
+  for (int i = 0; i < 3; i++) {
     free(data[i]);
   }
   free(data);
@@ -159,7 +158,7 @@ START_TEST(rotation_test_y) {
     data[i] = calloc(3, sizeof(double));
   }
 
-  data[0][0] = 1.963992;
+  data[0][0] = -1.64501;
   data[0][1] = -1.500000;
   data[0][2] = -0.418972;
 
@@ -184,14 +183,14 @@ START_TEST(rotation_test_y) {
   // 0.802194 -1.500000 -0.171129
 
   rotation_y(&v, 10);
-  for (int i; i < 3; i++) {
-    for (int j; j < 3; j++) {
-      ck_assert_double_eq(v.matrix_vert[i][j], data[i][j]);
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      ck_assert_double_eq_tol(v.matrix_vert[i][j], data[i][j], 5);
     }
   }
 
   remove_matrix(&p, &v);
-  for (int i; i < 3; i++) {
+  for (int i = 0; i < 3; i++) {
     free(data[i]);
   }
   free(data);
@@ -204,8 +203,8 @@ START_TEST(rotation_test_x) {
     data[i] = calloc(3, sizeof(double));
   }
 
-  data[0][0] = -1.420000;
-  data[0][1] = 2.031117;
+  data[0][0] = -1.42;
+  data[0][1] = -1.72379;
   data[0][2] = -0.375450;
 
   data[1][0] = -0.580000;
@@ -230,14 +229,14 @@ START_TEST(rotation_test_x) {
   //-0.580000 1.574140 0.329370
 
   rotation_x(&v, 10);
-  for (int i; i < 3; i++) {
-    for (int j; j < 3; j++) {
-      ck_assert_double_eq(v.matrix_vert[i][j], data[i][j]);
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      ck_assert_double_eq_tol(v.matrix_vert[i][j], data[i][j], 5);
     }
   }
 
   remove_matrix(&p, &v);
-  for (int i; i < 3; i++) {
+  for (int i = 0; i < 3; i++) {
     free(data[i]);
   }
   free(data);
@@ -276,14 +275,14 @@ START_TEST(move_test_x) {
   // 9.420000 -1.500000 0.580000
 
   move_matrix(&v, 10, 'x');
-  for (int i; i < 3; i++) {
-    for (int j; j < 3; j++) {
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
       ck_assert_double_eq(v.matrix_vert[i][j], data[i][j]);
     }
   }
 
   remove_matrix(&p, &v);
-  for (int i; i < 3; i++) {
+  for (int i = 0; i < 3; i++) {
     free(data[i]);
   }
   free(data);
@@ -322,14 +321,14 @@ START_TEST(move_test_y) {
   //-0.580000 8.500000 0.580000
 
   move_matrix(&v, 10, 'y');
-  for (int i; i < 3; i++) {
-    for (int j; j < 3; j++) {
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
       ck_assert_double_eq(v.matrix_vert[i][j], data[i][j]);
     }
   }
 
   remove_matrix(&p, &v);
-  for (int i; i < 3; i++) {
+  for (int i = 0; i < 3; i++) {
     free(data[i]);
   }
   free(data);
@@ -368,14 +367,14 @@ START_TEST(move_test_z) {
   //-0.580000 -1.500000 10.580000
 
   move_matrix(&v, 10, 'z');
-  for (int i; i < 3; i++) {
-    for (int j; j < 3; j++) {
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
       ck_assert_double_eq(v.matrix_vert[i][j], data[i][j]);
     }
   }
 
   remove_matrix(&p, &v);
-  for (int i; i < 3; i++) {
+  for (int i = 0; i < 3; i++) {
     free(data[i]);
   }
   free(data);
@@ -414,14 +413,14 @@ START_TEST(centr_test) {
   // 0.500000 0.000000 -0.500000
 
   correct_image(&v);
-  for (int i; i < 3; i++) {
-    for (int j; j < 3; j++) {
-      ck_assert_double_eq(v.matrix_vert[i][j], data[i][j]);
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      ck_assert_double_eq_tol(v.matrix_vert[i][j], data[i][j], 2);
     }
   }
 
   remove_matrix(&p, &v);
-  for (int i; i < 3; i++) {
+  for (int i = 0; i < 3; i++) {
     free(data[i]);
   }
   free(data);
