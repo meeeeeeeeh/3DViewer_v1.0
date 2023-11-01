@@ -56,14 +56,12 @@ void decrease(vertex *v, double value) {
     resize_matrix(v, k);
 }
 
-//// уменьшает и централрует изначальное изображение, запускается вначале работы
-//void correct_image(vertex *v) {
-
-    
-//    fill_min_max(v);
-//    centralize(v, &center_x, &center_y, &center_z);
-//    decrease(v, 0.5);
-//}
+// уменьшает и централрует изначальное изображение, запускается вначале работы
+void correct_image(vertex *v) {
+   fill_min_max(v);
+   centralize(v);
+   decrease(v, 0.5);
+}
 
 
 void move_matrix(vertex *v, double value, char coord) {

@@ -120,9 +120,9 @@ void rotation_y(vertex *v, double angle);
 /// \param v указатель на структуру, описывающую вершины 
 void fill_min_max(vertex *input_d);
 
-///// \brief отцентровывает и уменьшае изображение
-///// \param v указатель на структуру, описывающую вершины
-//void correct_image(vertex *v);
+/// \brief отцентровывает и уменьшае изображение
+/// \param v указатель на структуру, описывающую вершины
+void correct_image(vertex *v);
 
 /// \brief двигает изображение
 /// \param v указатель на структуру, описывающую вершины 
@@ -138,6 +138,5 @@ void resize_matrix(vertex *v, double value);
 char *get_file_name(const char *f);
 
 int is_obj_file(const char *f);
-
 
 #endif  // INC_3D_VIEWER_PARSER_H

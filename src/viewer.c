@@ -36,7 +36,7 @@ char *get_file_name(const char *f) {
    char *fp = (char *)f;
    printf("%s", strrchr(fp, '/'));
    res = strrchr(fp, '/');
-   *res++;
+   res = res + 1;
    return res;
 }
 

@@ -20,11 +20,10 @@ gcov_report:
 install:
 	make clean
 	mkdir build
-	cd 3DWieve && qmake && make && make clean && rm Makefile && cd ../ && mv 3DWieve/3DWieve.app build
+	cd build && qmake 3d_viewer.app && make
 
 uninstall:
-	make clean
-
+	rm -rf build
 
 dvi:
 	doxygen 

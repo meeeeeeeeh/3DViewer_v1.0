@@ -15,10 +15,10 @@ END_TEST
 START_TEST(s21_test_1) {
   vertex v;
   polygon p;
-  char *test_file = "skull.obj";
+  char *test_file = "cheburashka.obj";
   parser(test_file, &v, &p);
-  ck_assert_uint_eq(v.amount_vert, 6122);
-  ck_assert_uint_eq(p.amount_pol, 9537);
+  ck_assert_uint_eq(v.amount_vert, 6669);
+  ck_assert_uint_eq(p.amount_pol, 13334);
   
   remove_matrix(&p, &v);
 }
@@ -97,7 +97,7 @@ START_TEST(resize_test) {
   char *test_file = "abc.obj";
   parser(test_file, &v, &p);
 
-  resize(&v, 3);
+  resize_matrix(&v, 3);
   for(int i; i < 3; i++) {
     for(int j; j < 3; j++) {
       ck_assert_double_eq(v.matrix_vert[i][j], data[i][j]);
@@ -277,7 +277,7 @@ START_TEST(move_test_x) {
   //9.420000 -1.500000 1.420000 
   //9.420000 -1.500000 0.580000
   
-  move(&v, 10, 'x');
+  move_matrix(&v, 10, 'x');
   for(int i; i < 3; i++) {
     for(int j; j < 3; j++) {
       ck_assert_double_eq(v.matrix_vert[i][j], data[i][j]);
@@ -322,7 +322,7 @@ START_TEST(move_test_y) {
   //-0.580000 8.500000 1.420000 
   //-0.580000 8.500000 0.580000 
   
-  move(&v, 10, 'y');
+  move_matrix(&v, 10, 'y');
   for(int i; i < 3; i++) {
     for(int j; j < 3; j++) {
       ck_assert_double_eq(v.matrix_vert[i][j], data[i][j]);
@@ -367,7 +367,7 @@ START_TEST(move_test_z) {
   //-0.580000 -1.500000 11.420000 
   //-0.580000 -1.500000 10.580000  
   
-  move(&v, 10, 'z');
+  move_matrix(&v, 10, 'z');
   for(int i; i < 3; i++) {
     for(int j; j < 3; j++) {
       ck_assert_double_eq(v.matrix_vert[i][j], data[i][j]);

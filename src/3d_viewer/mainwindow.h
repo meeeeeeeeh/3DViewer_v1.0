@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "qtgifimage/src/gifimage/qgifimage.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -63,7 +64,17 @@ private slots:
 
     void on_central_clicked();
 
+    void on_image_clicked();
+
+    void on_gif_clicked();
+
+    void recordSlot();
+
+
 private:
     Ui::MainWindow *ui;
+    QGifImage *gifka;
+    QTimer *timerGif;
+    QString gifFilePath;
 };
 #endif // MAINWINDOW_H

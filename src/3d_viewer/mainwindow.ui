@@ -454,14 +454,14 @@
        </layout>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioButton_bmp">
+       <widget class="QRadioButton" name="bmp">
         <property name="text">
          <string>bmp</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QRadioButton" name="radioButton_jpeg">
+       <widget class="QRadioButton" name="jpeg">
         <property name="text">
          <string>jpeg</string>
         </property>

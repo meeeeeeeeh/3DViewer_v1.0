@@ -4,6 +4,9 @@
 #include "../viewer.h"
 #include <QFileDialog>
 #include <QColorDialog>
+#include <QTimer>
+#include <QImage>
+
 
 #include <QDebug>
 
@@ -12,6 +15,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    timerGif = new QTimer();
+
+    connect(timerGif, SIGNAL(timeout()), this, SLOT(recordSlot()));
 }
 
 MainWindow::~MainWindow()
@@ -227,3 +233,50 @@ void MainWindow::on_central_clicked()
 
     qDebug() << ui->GLwidget->c_proj;
 }
+
+void MainWindow::on_image_clicked()
+{
+    const char *format = "img files (*.jpeg)";
+    if (ui->bmp->isChecked()) format = "img files (*.bmp)";
+    else if (ui->jpeg->isChecked()) format = "img files (*.jpeg)";
+
+    QString imgFilePath = QFileDialog::getSaveFileName(
+    this, "Specify where to save a file", "/", tr(format), 0,
+    QFileDialog::DontUseNativeDialog);
+
+    QImage image = ui->GLwidget->grabFramebuffer();
+    image.save(imgFilePath);
+
+}
+
+
+void MainWindow::on_gif_clicked()
+{
+      gifka = new QGifImage();
+      gifFilePath = QFileDialog::getSaveFileName(
+          this, "Specify where to save a file", "/", tr("GIF files (*.gif)"), 0,
+          QFileDialog::DontUseNativeDialog);
+      timerGif->start(100);
+}
+
+    void MainWindow::recordSlot() {
+      QImage modelImage = ui->GLwidget->grabFramebuffer();
+      gifka->addFrame(modelImage);
+      if (gifka->frameCount() == 50) {
+        timerGif->stop();
+        gifka->setDefaultDelay(100);
+        bool saveRes = gifka->save(gifFilePath);
+        QString saveAlert;
+        if (saveRes) {
+          saveAlert = "File saved at" + gifFilePath;
+        } else {
+          saveAlert = "Gif wasn't saved, something went wrong(";
+        }
+        qDebug() << saveAlert;
+        delete gifka;
+        gifka = NULL;
+      }
+      //qDebug() << "recordSlot";
+    }
+
+
