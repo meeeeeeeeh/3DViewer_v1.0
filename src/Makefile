@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGC =  -Wall -Werror -Wextra -lcheck -lm
+CFLAGC =  -Wall -Werror -Wextra -lcheck -lm -g 
 SOURCES = viewer.c
 OBJECTS = viewer.o
 

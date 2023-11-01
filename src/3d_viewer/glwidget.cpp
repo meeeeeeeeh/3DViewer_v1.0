@@ -35,11 +35,11 @@ void GLWidget::paintGL()
         glLoadIdentity();
 
         if(p_proj) {
-           glOrtho(0, 1, 0, 1, 1, 1);
+           glOrtho(-0.5, 0.5, -0.5, 0.5, 1, 1);
            p_proj = false;
         }
-        else if(c_proj) {
-            glFrustum(-1, 1, -1, 1, 3, 5);
+        if(c_proj) {
+            glFrustum(-0.5, 0.5, -0.5, 0.5, 0, 10);
             c_proj = false;
         }
 
