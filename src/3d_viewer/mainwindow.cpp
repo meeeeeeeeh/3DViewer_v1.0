@@ -136,16 +136,6 @@ void MainWindow::on_resize_clicked()
 }
 
 
-void MainWindow::on_color_vert_clicked()
-{
-    QColorDialog colorDialog(this);
-    auto new_color = colorDialog.getColor(Qt::white, this);
-    if (new_color.isValid()) {
-        ui->GLwidget->change_vert_color(new_color);
-    }
-}
-
-
 void MainWindow::on_spinBox_valueChanged(int arg1)
 {
     ui->GLwidget->change_size_vert(arg1);
@@ -162,8 +152,6 @@ void MainWindow::on_dot_none_clicked()
 {
     ui->GLwidget->d_n = true;
     ui->GLwidget->update();
-     //ui->GLwidget->d_n = false;
-
 }
 
 
@@ -194,3 +182,48 @@ void MainWindow::on_line_solid_clicked()
     ui->GLwidget->update();
 }
 
+void MainWindow::on_color_vert_clicked()
+{
+    QColorDialog colorDialog(this);
+    auto new_color = colorDialog.getColor(Qt::white, this);
+    if (new_color.isValid()) {
+        ui->GLwidget->v_color_ = new_color;
+        ui->GLwidget->update();
+    }
+}
+
+void MainWindow::on_color_lines_clicked()
+{
+    QColorDialog colorDialog(this);
+    auto new_color = colorDialog.getColor(Qt::white, this);
+    if (new_color.isValid()) {
+        ui->GLwidget->l_color_ = new_color;
+        ui->GLwidget->update();
+    }
+}
+
+void MainWindow::on_color_back_clicked()
+{
+    QColorDialog colorDialog(this);
+    auto new_color = colorDialog.getColor(Qt::white, this);
+    if (new_color.isValid()) {
+        ui->GLwidget->b_color_ = new_color;
+        ui->GLwidget->update();
+    }
+}
+
+
+void MainWindow::on_parallel_clicked()
+{
+    ui->GLwidget->p_proj = true;
+    ui->GLwidget->update();
+}
+
+
+void MainWindow::on_central_clicked()
+{
+    ui->GLwidget->c_proj = true;
+    ui->GLwidget->update();
+
+    qDebug() << ui->GLwidget->c_proj;
+}

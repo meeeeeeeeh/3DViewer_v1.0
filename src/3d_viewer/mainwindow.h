@@ -37,14 +37,7 @@ private slots:
 
     void file_output(const char * path_str);
 
-
     void on_resize_clicked();
-
-    void on_color_vert_clicked();
-
-    //void on_color_lines_clicked();
-
-    //void on_color_back_clicked();
 
     void on_spinBox_valueChanged(int arg1);
 
@@ -59,6 +52,16 @@ private slots:
     void on_line_dashed_clicked();
 
     void on_line_solid_clicked();
+
+    void on_color_vert_clicked();
+
+    void on_color_lines_clicked();
+
+    void on_color_back_clicked();
+
+    void on_parallel_clicked();
+
+    void on_central_clicked();
 
 private:
     Ui::MainWindow *ui;
