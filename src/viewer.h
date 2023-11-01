@@ -135,8 +135,12 @@ void move_matrix(vertex *v, double value, char coord);
 /// \param value во сколько раз необходимо изменить изображение
 void resize_matrix(vertex *v, double value);
 
+/// \brief считывает имя файла
+/// \param f название файла 
 char *get_file_name(const char *f);
 
+/// \brief проверяет корректность имени файла
+/// \param f название файла 
 int is_obj_file(const char *f);
 
 #endif  // INC_3D_VIEWER_PARSER_H
